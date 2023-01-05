@@ -5,7 +5,7 @@ LIB2 = ranlib
 RM = rm -f
 NAME = libft.a
 INCLUDE = libft.h
-SRCS = ft_memset.c ft_strlen.c
+SRCS = ft_memset.c ft_bzero.c ft_strlen.c
 OBJS = $(SRCS:.c=.o)
 
 all:	$(OBJS) $(NAME)

@@ -1,15 +1,22 @@
 #include "libft.h"
 #include <stdio.h>
-#include <string.h>
+#include <strings.h>
 
 int main (void) {
+
+	/*ft_memset*/
 	printf("ft_memset\n");
-	char str[40] = "SuperMegaBanzai";
+	char str[15] = "SuperMegaBanzai";
 	ft_memset(str + 9, 4, 3*sizeof(char));
 	printf("%s\n", str);
-	char ptr[40] = "SuperMegaBanzai";
-	memset(ptr + 9, 4, 3*sizeof(char));
-	printf("%s\n", ptr);
+
+	/*ft_bzero*/
+	printf("ft_bzero\n");
+	char trs[10] = "BanzaiMega";
+	ft_bzero(trs + 6, 3);
+	printf("%s\n", trs);
+
+	/*ft_strlen*/
 	printf("ft_strlen\n");
 	printf("%d\n", ft_strlen("ciao"));
 	printf("\n");
