@@ -1,6 +1,6 @@
 #include "libft.h"
 #include <stdio.h>
-#include <strings.h>
+#include <string.h>
 
 int main (void) {
 
@@ -12,12 +12,20 @@ int main (void) {
 
 	/*ft_bzero*/
 	printf("ft_bzero\n");
-	char trs[10] = "BanzaiMega";
-	ft_bzero(trs + 6, 3);
-	printf("%s\n", trs);
+	char srt[10] = "BanzaiMega";
+	ft_bzero(srt + 6, 3);
+	printf("%s\n", srt);
+
+	/*ft_memcpy*/
+	printf("ft_memcpy\n");
+	char tsr[20] = "";
+	char trs[20] = "Lar";
+	ft_memcpy(tsr, trs, 3);
+	printf("%s\n", tsr);
 
 	/*ft_strlen*/
 	printf("ft_strlen\n");
 	printf("%d\n", ft_strlen("ciao"));
-	printf("\n");
+
+	return (0);
 }
