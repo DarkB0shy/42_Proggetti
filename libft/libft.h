@@ -1,3 +1,5 @@
-int ft_strlen(char *str);
+#include <unistd.h>
 
-void ft_tolower(char *str);
+int	ft_strlen(char *str);
+
+void	*ft_memset(void *s, int c, int n);
