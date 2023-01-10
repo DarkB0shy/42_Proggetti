@@ -23,9 +23,30 @@ int main (void) {
 	ft_memcpy(tsr, trs, 3);
 	printf("%s\n", tsr);
 
-	/*ft_strlen*/
-	printf("ft_strlen\n");
-	printf("%d\n", ft_strlen("ciao"));
+	/*ft_memccpy*/
+	printf("ft_memccpy\n");
+	char bat[20] = "Geronimo";
+	char man[20] = "Stolton";
+	ft_memccpy(bat, man, 'n', 7);
+	printf("%s\n", bat);
+
+	/*ft_memmove*/
+	printf("ft_memmove\n");
+	char rat[20] = "Babalu";
+	char tat[20] = "Ayeaye";
+	ft_memmove(rat, tat, 3);
+	printf("%s\n", rat);
+	
+	/*ft_memchr*/
+	printf("ft_memchr\n");
+	printf("Originale\n");
+	char cheng[20] = "Lumaca";
+	memchr(cheng, 'a', 4);
+	printf("%s\n", cheng);
+	char chang[20] = "Lumaca";
+	ft_memchr(chang, 'a', 4);
+	printf("%s\n", chang);
+
 
 	return (0);
 }
