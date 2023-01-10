@@ -39,14 +39,23 @@ int main (void) {
 	
 	/*ft_memchr*/
 	printf("ft_memchr\n");
-	printf("Originale\n");
-	char cheng[20] = "Lumaca";
-	memchr(cheng, 'a', 4);
-	printf("%s\n", cheng);
 	char chang[20] = "Lumaca";
-	ft_memchr(chang, 'a', 4);
-	printf("%s\n", chang);
+	char *old = ft_memchr(chang, 'a', 4);
+	printf("%s\n", old);
 
+	/*ft_memcmp ???*/
+	printf("ft_memcmp\n");
+	printf("Originale\n");
+	char okk[8] = "Rizzfano";
+	char kko[8] = "Riaancar";
+	int kok = 0;
+	kok = memcmp(okk, kko, 5);
+	printf("%d\n", kok);
+	char cya[8] = "Rizzfano";
+	char ayc[8] = "Riaancar";
+	int oko = 0;
+	oko = ft_memcmp(cya, ayc, 5);
+	printf("%d\n", oko);
 
 	return (0);
 }
