@@ -62,7 +62,14 @@ int main (void) {
 	char *yaya = "Henlo";
 	char *mewtwo;
 	mewtwo = ft_strdup(yaya);
-	printf("%s\n", mewtwo);	
+	printf("%s\n", mewtwo);
+
+	/*ft_strcpy*/
+	printf("ft_strcpy\n");
+	char ciccia[5] = "ciao";
+	char cacca[5] = "zi";
+	char *cicciacacca = ft_strcpy(ciccia, cacca);
+	printf("%s\n", cicciacacca);	
 
 	return (0);
 }

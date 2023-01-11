@@ -10,3 +10,4 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int	ft_memcmp(const void *s1, const void *s2, size_t n);
 int	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
+char	*ft_strcpy(char *restrict dest, const char *src);
