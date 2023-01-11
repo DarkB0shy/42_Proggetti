@@ -43,19 +43,26 @@ int main (void) {
 	char *old = ft_memchr(chang, 'a', 4);
 	printf("%s\n", old);
 
-	/*ft_memcmp ???*/
+	/*ft_memcmp*/
 	printf("ft_memcmp\n");
-	printf("Originale\n");
-	char okk[8] = "Rizzfano";
-	char kko[8] = "Riaancar";
-	int kok = 0;
-	kok = memcmp(okk, kko, 5);
-	printf("%d\n", kok);
-	char cya[8] = "Rizzfano";
-	char ayc[8] = "Riaancar";
+	char cya[8] = "Gianfran";
+	char ayc[8] = "Gianfran";
 	int oko = 0;
 	oko = ft_memcmp(cya, ayc, 5);
 	printf("%d\n", oko);
+
+	/*ft_strlen*/
+	printf("ft_strlen\n");
+	char aya[] = "Hello";
+	int kok = ft_strlen(aya);
+	printf("%d\n", kok);
+
+	/*ft_strdup*/
+	printf("ft_strdup\n");
+	char *yaya = "Henlo";
+	char *mewtwo;
+	mewtwo = ft_strdup(yaya);
+	printf("%s\n", mewtwo);	
 
 	return (0);
 }
