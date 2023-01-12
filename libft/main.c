@@ -71,5 +71,27 @@ int main (void) {
 	char *cicciacacca = ft_strcpy(ciccia, cacca);
 	printf("%s\n", cicciacacca);	
 
+	/*ft_strncpy*/
+	printf("ft_strncpy\n");
+	char jjj[7] = "Buonase";
+	char zzz[7] = "Ando";
+	char *xxx = ft_strncpy(jjj, zzz, 3);
+	printf("%s\n", xxx);
+
+	/*ft_strcat*/
+	printf("ft_strcat\n");
+	char aa[] = "aaa";
+	char bb[] = "iii";
+	printf("%s\n", strcat(aa, bb));
+	printf("%s\n", ft_strcat(aa, bb));
+
+
+	/*ft_atoi*/
+	printf("ft_atoi\n");
+	char *attoi = "\f	\t	\n-46b7";
+	int iota = ft_atoi(attoi);
+	printf("%d\n", iota);
+	printf("%d\n", atoi(attoi));
+
 	return (0);
 }

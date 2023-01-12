@@ -11,3 +11,8 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n);
 int	ft_strlen(const char *str);
 char	*ft_strdup(const char *s);
 char	*ft_strcpy(char *restrict dest, const char *src);
+char	*ft_strncpy(char *restrict dest, const char *restrict src, size_t n);
+char	*ft_strcat(char *restrict dest, const char *restrict src);
+char	*ft_strncat(char *restrict dest, const char *restrict src, size_t n);
+int	ft_atoi(const char *nptr);
+
