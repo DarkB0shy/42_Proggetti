@@ -91,12 +91,32 @@ int main (void) {
 	char ee[20] = "ooo";
 	char *bf = ft_strncat(dd, ee, 1);
 	printf("%s\n", bf);
-	
+
 	/*ft_strlcat*/
 	printf("ft_strlcat\n");
 	char ff[20] = "ccc";
 	char ii[20] = "uuu";
 	printf("%ld\n", ft_strlcat(ff, ii, 3));
+
+	/*ft_strchr*/
+	printf("ft_strchr\n");
+	char baka[] = "Jerome";
+	char bak = 'e';
+	printf("%s\n", ft_strchr(baka, bak));
+
+	/*ft_strrchr*/
+	printf("ft_strrchr\n");
+	char akab[] = "Jerome";
+	char aka = 'e';
+	printf("%s\n", ft_strrchr(akab, aka));
+
+	/*ft_strstr*/
+	printf("ft_strstr\n");
+	char achab[] = "HappyMeal";
+	char isma[] = "Happy";
+	printf("%s\n", strstr(achab, isma));
+	printf("%s\n", ft_strstr(achab, isma));
+
 
 	/*ft_atoi*/
 	printf("ft_atoi\n");
