@@ -14,5 +14,6 @@ char	*ft_strcpy(char *restrict dest, const char *src);
 char	*ft_strncpy(char *restrict dest, const char *restrict src, size_t n);
 char	*ft_strcat(char *restrict dest, const char *restrict src);
 char	*ft_strncat(char *restrict dest, const char *restrict src, size_t n);
+size_t	ft_strlcat(char *dest, const char *src, size_t n);
 int	ft_atoi(const char *nptr);
 

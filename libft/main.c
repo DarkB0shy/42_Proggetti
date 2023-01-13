@@ -80,18 +80,29 @@ int main (void) {
 
 	/*ft_strcat*/
 	printf("ft_strcat\n");
-	char aa[] = "aaa";
-	char bb[] = "iii";
-	printf("%s\n", strcat(aa, bb));
-	printf("%s\n", ft_strcat(aa, bb));
+	char aa[20] = "aaa";
+	char bb[20] = "iii";
+	char *cc = ft_strcat(aa, bb);
+	printf("%s\n", cc);
 
+	/*ft_strncat*/
+	printf("ft_strncat\n");
+	char dd[20] = "bbb";
+	char ee[20] = "ooo";
+	char *bf = ft_strncat(dd, ee, 1);
+	printf("%s\n", bf);
+	
+	/*ft_strlcat*/
+	printf("ft_strlcat\n");
+	char ff[20] = "ccc";
+	char ii[20] = "uuu";
+	printf("%ld\n", ft_strlcat(ff, ii, 3));
 
 	/*ft_atoi*/
 	printf("ft_atoi\n");
 	char *attoi = "\f	\t	\n-46b7";
 	int iota = ft_atoi(attoi);
 	printf("%d\n", iota);
-	printf("%d\n", atoi(attoi));
 
 	return (0);
 }
