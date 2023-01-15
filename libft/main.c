@@ -136,13 +136,18 @@ int main (void) {
 
 	/*ft_isalpha*/
 	printf("ft_isalpha\n");
-	int jyr = 0;
+	int jyr = 'a';
 	printf("%d\n", ft_isalpha(jyr));
 
 	/*ft_isdigit*/
 	printf("ft_isdigit\n");
-	int ryj = 'a';
+	int ryj = 7;
 	printf("%d\n", ft_isdigit(ryj));
+
+	/*ft_isalnum*/
+	printf("ft_isalnum\n");
+	int rjy = 9;
+	printf("%d\n", ft_isalnum(rjy));
 
 	return (0);
 }
