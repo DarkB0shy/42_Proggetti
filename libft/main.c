@@ -122,6 +122,12 @@ int main (void) {
 	char ohio[] = "";
 	printf("%d\n", ft_strcmp(uwu, ohio));
 
+	/*ft_strncmp*/
+	printf("ft_strncmp\n");
+	char yugi[] = "qwerty";
+	char oh[] = "abaco";
+	printf("%d\n", ft_strncmp(yugi, oh, 1));
+
 	/*ft_atoi*/
 	printf("ft_atoi\n");
 	char *attoi = "\f	\t	\n-46b7";
