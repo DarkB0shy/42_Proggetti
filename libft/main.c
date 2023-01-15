@@ -4,6 +4,8 @@
 
 int main (void) {
 
+	printf("LIBFC functions\n");
+
 	/*ft_memset*/
 	printf("ft_memset\n");
 	char str[15] = "SuperMegaBanzai";
@@ -148,6 +150,29 @@ int main (void) {
 	printf("ft_isalnum\n");
 	int rjy = 9;
 	printf("%d\n", ft_isalnum(rjy));
+
+	/*ft_isascii*/
+	printf("ft_isascii\n");
+	int luke = '\n';
+	printf("%d\n", ft_isascii(luke));
+
+	/*ft_isprint*/
+	printf("ft_isprint\n");
+	int skyw = 'G';
+	printf("%d\n", ft_isprint(skyw));
+
+	/*ft_toupper*/
+	printf("ft_toupper\n");
+	int pow = 'g';
+	int pepe = ft_toupper(pow);
+	write(1, &pepe, 1);
+	printf("\n");
+
+	/*ft_tolower*/
+	printf("ft_tolower\n");
+	int pupu = ft_tolower(pepe);
+	write(1, &pupu, 1);
+	printf("\n");
 
 	return (0);
 }
