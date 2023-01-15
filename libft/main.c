@@ -114,9 +114,13 @@ int main (void) {
 	printf("ft_strstr\n");
 	char achab[] = "HappyMeal";
 	char isma[] = "Happy";
-	printf("%s\n", strstr(achab, isma));
 	printf("%s\n", ft_strstr(achab, isma));
 
+	/*ft_strcmp*/
+	printf("ft_strcmp\n");
+	char uwu[] = "";
+	char ohio[] = "";
+	printf("%d\n", ft_strcmp(uwu, ohio));
 
 	/*ft_atoi*/
 	printf("ft_atoi\n");
