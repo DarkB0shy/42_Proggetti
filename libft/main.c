@@ -134,5 +134,10 @@ int main (void) {
 	int iota = ft_atoi(attoi);
 	printf("%d\n", iota);
 
+	/*ft_isalpha*/
+	printf("ft_isalpha\n");
+	int jyr = 0;
+	printf("%d\n", ft_isalpha(jyr));
+
 	return (0);
 }
