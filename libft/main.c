@@ -139,5 +139,10 @@ int main (void) {
 	int jyr = 0;
 	printf("%d\n", ft_isalpha(jyr));
 
+	/*ft_isdigit*/
+	printf("ft_isdigit\n");
+	int ryj = 'a';
+	printf("%d\n", ft_isdigit(ryj));
+
 	return (0);
 }
