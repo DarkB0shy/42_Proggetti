@@ -151,6 +151,15 @@ int main (void) {
 
 	/*ft_strjoin*/
 	printf("ft_strjoin\n");
+	char *gels = "gels";
+	char *lseg = "omino";
+	printf("%s\n", ft_strjoin(gels, lseg));
+
+	/*ft_strtrim*/
+	printf("ft_strtrim\n");
+	char *ernesto = "zioaldogiovanniegiacomozio";
+	char *gian = "zio";
+	printf("%s\n", ft_strtrim(ernesto, gian));
 
 	return (0);
 }
