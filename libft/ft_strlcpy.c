@@ -4,7 +4,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
 	size_t	i;
 
-	if (n != ft_strlen(src))
+	if (n != (size_t)ft_strlen(src))
 		return (0);
 	if (!dest || !src)
 		return (0);

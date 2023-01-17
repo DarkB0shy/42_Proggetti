@@ -67,7 +67,7 @@ int main (void) {
 	printf("ft_strlcpy\n");
 	char molly[10] = "molly";
 	char moon[10] = "moon";
-	printf("%d\n", ft_strlcpy(molly, moon, 4));
+	printf("%ld\n", ft_strlcpy(molly, moon, 4));
 
 	/*ft_strlcat*/
 	printf("ft_strlcat\n");
@@ -121,6 +121,11 @@ int main (void) {
 	printf("%d\n", oko);
 
 	/*ft_strnstr*/
+	printf("ft_strnstr\n");
+	const char *jni = "Ballacanestro";
+	const char *jn = "cane";
+	char *yodel = ft_strnstr(jni, jn, 12);
+	printf("%s\n", yodel);
 
 	/*ft_atoi*/
 	printf("ft_atoi\n");
