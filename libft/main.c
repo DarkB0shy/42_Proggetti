@@ -142,7 +142,15 @@ int main (void) {
 
 	/*ft_calloc*/
 
-	printf("Additional functions\n");
+	printf("\nAdditional functions\n");
+
+	/*ft_substr*/
+	printf("ft_substr\n");
+	char *squirtle = "Bulbasaur";
+	printf("%s\n", ft_substr(squirtle, 4, 3));
+
+	/*ft_strjoin*/
+	printf("ft_strjoin\n");
 
 	return (0);
 }
