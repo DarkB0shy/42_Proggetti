@@ -161,5 +161,11 @@ int main (void) {
 	char *gian = "zio";
 	printf("%s\n", ft_strtrim(ernesto, gian));
 
+	/*ft_split*/
+	printf("ft_split\n");
+	char *qqq = "zmelazbananazpera";
+	char **www = ft_split(qqq, 'z');
+	printf("%s\n%s\n%s\n", www[0], www[1], www[2]);
+
 	return (0);
 }

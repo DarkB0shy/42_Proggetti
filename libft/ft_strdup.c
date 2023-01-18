@@ -13,9 +13,9 @@ char	*ft_strdup(const char *s)
 	i = 0;
 	while (s[i])
 	{
-		str[i] = s[i];
+		d[i] = s[i];
 		i = i + 1;
 	}
-	str[i] = '\0';
-	return(str);
+	d[i] = '\0';
+	return(d);
 }
