@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utiles.c                             :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:17:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/24 19:49:02 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:47:56 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ char	*ft_strjoin(char *backup, char *buff)
 	int		i;
 	int		k;
 
-	if (!backup || !buff)
-		return (NULL);
-	k = ft_strlen(backup) + ft_strlen(buff) + 1;
-	d = (char *)malloc(sizeof(char) * k);
+	if (backup == NULL)
+		backup = malloc(1 + sizeof(char));
+	k = ft_strlen(backup) + ft_strlen(buff);
+	d = (char *)malloc(sizeof(char) * (k + 2));
 	if (!d)
 		return (NULL);
 	i = 0;
@@ -67,3 +67,4 @@ char	*ft_strjoin(char *backup, char *buff)
 	d[i + ft_strlen(backup)] = '\0';
 	return (d);
 }
+

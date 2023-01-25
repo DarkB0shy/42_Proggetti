@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:11:31 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/24 19:45:07 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/25 11:24:51 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1000
+#  define BUFFER_SIZE 5
 # endif
 
 # include <unistd.h>
@@ -23,5 +23,6 @@
 
 char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
+char	*ft_strjoin(char *backup, char *buff);
 
 #endif
