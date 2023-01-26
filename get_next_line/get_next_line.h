@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:11:31 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/25 14:58:29 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:06:41 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,17 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 5
+#  define BUFFER_SIZE 100
 # endif
-
-#include "get_next_line_utils.c"
-
-#include "get_next_line.c"
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <fcntl.h>
 
 char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
 char	*ft_strjoin(char *backup, char *buff);
+char	*get_next_line(int fd);
 
 #endif

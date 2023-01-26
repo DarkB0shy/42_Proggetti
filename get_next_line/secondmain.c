@@ -1,5 +1,3 @@
-#include <fcntl.h>
-
 #include "get_next_line.h"
 
 int	main (void)
@@ -8,7 +6,7 @@ int	main (void)
 	int	groucho;
 	char	*ret;
 
-	fd = open("linkz.tzt", O_RDONLY);
+	fd = open("linkz.txt", O_RDONLY);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 	{
 		printf("Rest in pieces\n");

@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:17:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/25 11:47:56 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 09:38:56 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ char	*ft_strjoin(char *backup, char *buff)
 	int		i;
 	int		k;
 
-	if (backup == NULL)
+	if (backup == 0)
 		backup = malloc(1 + sizeof(char));
 	k = ft_strlen(backup) + ft_strlen(buff);
 	d = (char *)malloc(sizeof(char) * (k + 2));
 	if (!d)
-		return (NULL);
+		return (0);
 	i = 0;
 	while (backup[i])
 	{
