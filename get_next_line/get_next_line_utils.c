@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:17:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/26 10:15:55 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 11:23:52 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ char	*ft_strjoin(char *backup, char *buff)
 	int		k;
 
 	if (backup == 0)
-		backup = malloc(1 + sizeof(char));
+		backup = malloc(1 * sizeof(char));
 	k = ft_strlen(backup) + ft_strlen(buff);
 	d = (char *)malloc(sizeof(char) * (k + 2));
 	if (!d)
@@ -65,5 +65,6 @@ char	*ft_strjoin(char *backup, char *buff)
 		i++;
 	}
 	d[i + ft_strlen(backup)] = '\0';
+	free(backup);
 	return (d);
 }
