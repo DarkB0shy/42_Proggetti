@@ -6,16 +6,12 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:11:31 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/26 15:38:04 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:20:37 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 100
-# endif
 
 # include <unistd.h>
 # include <stdlib.h>
