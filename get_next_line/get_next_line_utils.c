@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:17:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/26 09:38:56 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 10:15:55 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,3 @@ char	*ft_strjoin(char *backup, char *buff)
 	d[i + ft_strlen(backup)] = '\0';
 	return (d);
 }
-
