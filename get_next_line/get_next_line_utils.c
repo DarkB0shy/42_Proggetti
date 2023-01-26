@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:17:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/26 11:23:52 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:18:28 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strchr(char *s, int c)
 		return (0);
 	if (c == '\0')
 		return ((char *)&s[ft_strlen(s)]);
-	while (s[i])
+	while (s[i] != '\0')
 	{
 		if (s[i] == (char)c)
 			return ((char *)&s[i]);
@@ -40,31 +40,30 @@ char	*ft_strchr(char *s, int c)
 	return (0);
 }
 
-char	*ft_strjoin(char *backup, char *buff)
+char	*ft_strjoin(char *line, char *buff)
 {
-	char	*d;
-	int		i;
-	int		k;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if (backup == 0)
-		backup = malloc(1 * sizeof(char));
-	k = ft_strlen(backup) + ft_strlen(buff);
-	d = (char *)malloc(sizeof(char) * (k + 2));
-	if (!d)
-		return (0);
-	i = 0;
-	while (backup[i])
+	if (!line)
 	{
-		d[i] = backup[i];
-		i++;
+		line = (char *)malloc(1 * sizeof(char));
+		line[0] = '\0';
 	}
-	i = 0;
-	while (buff[i])
-	{
-		d[i + ft_strlen(backup)] = buff[i];
-		i++;
-	}
-	d[i + ft_strlen(backup)] = '\0';
-	free(backup);
-	return (d);
+	if (!line || !buff)
+		return (NULL);
+	str = malloc(sizeof(char) * ((ft_strlen(line) + ft_strlen(buff)) + 1));
+	if (str == NULL)
+		return (NULL);
+	i = -1;
+	j = 0;
+	if (line)
+		while (line[++i] != '\0')
+			str[i] = line[i];
+	while (buff[j] != '\0')
+		str[i++] = buff[j++];
+	str[ft_strlen(line) + ft_strlen(buff)] = '\0';
+	free(line);
+	return (str);
 }

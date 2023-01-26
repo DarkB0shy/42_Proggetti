@@ -6,20 +6,17 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:13:16 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/26 12:25:30 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/26 15:40:12 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+char	*ft_get_line(int fd, char *line)
 {
-	static char	*line;
 	char	*buffer;
-	int			n_bytes;
+	int		n_bytes;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
 	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
@@ -27,17 +24,16 @@ char	*get_next_line(int fd)
 	while (!(ft_strchr(line, '\n')) && n_bytes > 0)
 	{
 		n_bytes = read(fd, buffer, BUFFER_SIZE);
-		if (n_bytes != -1)
-			line = ft_strjoin(line, buffer);
-		else
+		if (n_bytes == -1)
 		{
 			free(buffer);
-			return (0);
+			return (NULL);
 		}
+		buffer[n_bytes] = '\0';
+		line = ft_strjoin(line, buffer);
 	}
-	line[ft_strlen(line)] = 0;
 	free(buffer);
-	return (clean_line(line));
+	return (line);
 }
 
 char	*new_line(char *line)
@@ -66,28 +62,45 @@ char	*new_line(char *line)
 	return (str);
 }
 
-char	*clean_line(char *str)
+char	*ft_get_next_line(char *str)
 {
 	char	*ret;
 	int		i;
 
 	i = 0;
-	while (str[i] != '\n')
+	if (!str[i])
+		return (NULL);
+	while (str[i] != '\n' && str[i])
 		i++;
-	ret = (char *)malloc(sizeof(char) * (i + 2));
+	ret = (char *)malloc(i + 2);
 	if (!ret)
 		return (NULL);
 	i = 0;
-	while (str[i] != '\n')
+	while (str[i] != '\n' && str[i])
 	{
 		ret[i] = str[i];
 		i++;
 	}
 	if (str[i] == '\n')
 	{
-		ret[i] = '\n';
+		ret[i] = str[i];
 		i++;
 	}
-	ret[i] = 0;
+	ret[i] = '\0';
 	return (ret);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*line;
+	char		*next_line;
+
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
+	line = ft_get_line(fd, line);
+	if (!line)
+		return (NULL);
+	next_line = ft_get_next_line(line);
+	line = new_line(line);
+	return (next_line);
 }
