@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 19:11:31 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/25 11:24:51 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/25 14:58:29 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 5
 # endif
+
+#include "get_next_line_utils.c"
+
+#include "get_next_line.c"
 
 # include <unistd.h>
 # include <stdlib.h>
