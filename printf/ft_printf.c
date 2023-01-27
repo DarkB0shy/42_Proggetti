@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:20:28 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 00:30:18 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 00:54:36 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ int	ft_conversion(va_list vl, const char format)
 		char_printed += ft_putptr(va_arg(vl, uintptr_t));
 	else if (format == 'u')
 		char_printed += ft_put_u_int(va_arg(vl, unsigned int));
+	else if (format == 'd')
+		char_printed += ft_putnbr(va_arg(vl, int));
+	else if (format == '%')
+		char_printed += ft_putchar('%');
 	return (char_printed);
 }
 
