@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:22:59 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 14:23:11 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 15:00:18 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,10 @@ int	ft_conversion(va_list vl, const char format)
 	else if (format == 'p')
 		char_printed += ft_putptr(va_arg(vl, uintptr_t));
 	else if (format == 'u')
-		char_printed += ft_put_u_int(va_arg(vl, unsigned int));
+		char_printed += ft_put_unsigned_nbr(va_arg(vl, unsigned int));
 	else if (format == 'd')
+		char_printed += ft_putnbr(va_arg(vl, int));
+	else if (format == 'i')
 		char_printed += ft_putnbr(va_arg(vl, int));
 	else if (format == 'x' || format == 'X')
 		char_printed += ft_puthex(va_arg(vl, unsigned int), format);

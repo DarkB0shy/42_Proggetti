@@ -5,58 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 14:22:11 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 14:22:25 by dcarassi         ###   ########.fr       */
+/*   Created: 2023/01/28 14:55:13 by dcarassi          #+#    #+#             */
+/*   Updated: 2023/01/28 14:58:29 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_get_u_len(unsigned int nb)
+int	ll_length(long long nb, int base)
 {
-	int	len;
+	int	count;
 
-	len = 0;
-	while (nb != 0)
-	{
-		len++;
-		nb = nb / 10;
-	}
-	return (len);
+	count = 0;
+	if (nb <= 0)
+		count++;
+	while (nb && ++count)
+		nb /= base;
+	return (count);
 }
 
-char	*ft_u_itoa(unsigned int nb)
+int	ft_put_unsigned_nbr(unsigned int nb)
 {
-	char	*str;
-	int		len;
-
-	len = ft_get_u_len(nb);
-	str = (char *)malloc(sizeof(char) * (len + 1));
-	if (!str)
-		return (0);
-	str[len] = '\0';
-	while (nb != 0)
+	if (nb == 4294967295)
 	{
-		str[len - 1] = nb % 10 + 48;
-		nb = nb / 10;
-		len--;
+		ft_putnbr(nb / 10);
+		ft_putchar('5');
 	}
-	return (str);
-}
-
-int	ft_put_u_int(unsigned int nb)
-{
-	int		char_printed;
-	char	*str;
-
-	char_printed = 0;
-	if (nb == 0)
-		char_printed += write(1, "0", 1);
 	else
 	{
-		str = ft_itoa(nb);
-		char_printed += ft_putstr(str);
-		free(str);
+		if (nb > 9)
+			ft_putnbr(nb / 10);
+		ft_putchar(48 + nb % 10);
 	}
-	return (char_printed);
+	if (nb < 0)
+		return (ll_length(4294967295 - nb + 1, 10));
+	return (ll_length(nb, 10));
 }

@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 14:22:35 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 14:22:46 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 14:59:58 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 int		len_ptr(uintptr_t nb);
 void	ft_put_ptr(uintptr_t nb);
 int		ft_putptr(uintptr_t nb);
-int		ft_get_u_len(unsigned int nb);
-char	*ft_u_itoa(unsigned int nb);
-int		ft_put_u_int(unsigned int nb);
 int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_conversion(va_list vl, const char format);
@@ -33,5 +30,7 @@ int		ft_putnbr(int n);
 int		hex_len(unsigned int num);
 void	ft_put_hex(unsigned int num, const char formmat);
 int		ft_puthex(unsigned int num, const char format);
+int		ll_length(long long nb, int base);
+int		ft_put_unsigned_nbr(unsigned int nb);
 
 #endif
