@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:20:28 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 12:02:11 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:33:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	ft_conversion(va_list vl, const char format)
 		char_printed += ft_put_u_int(va_arg(vl, unsigned int));
 	else if (format == 'd')
 		char_printed += ft_putnbr(va_arg(vl, int));
+	else if (format == 'x' || format == 'X')
+		char_printed += ft_puthex(va_arg(vl, unsigned int), format);
 	else if (format == '%')
 		char_printed += ft_putchar('%');
 	return (char_printed);
