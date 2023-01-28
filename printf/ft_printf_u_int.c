@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:09:25 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 00:27:18 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:04:20 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_u_itoa(unsigned int nb)
 	char	*str;
 	int		len;
 
-	len = get_u_len(nb);
+	len = ft_get_u_len(nb);
 	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (0);

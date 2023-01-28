@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:15:16 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 00:53:12 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:03:16 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,5 @@ char	*ft_char(char *s, unsigned int number, int len);
 int		ft_len(int n);
 char	*ft_itoa(int n);
 int		ft_putnbr(int n);
+
+#endif

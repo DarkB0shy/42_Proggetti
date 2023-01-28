@@ -6,7 +6,7 @@
 /*   By: dcarassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 00:20:28 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/28 00:54:36 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/28 12:02:11 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			char_printed += ft_conversion(vl format[i + 1]);
+			char_printed += ft_conversion(vl, format[i + 1]);
 			i++;
 		}
 		else
