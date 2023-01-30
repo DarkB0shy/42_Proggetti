@@ -1,6 +1,6 @@
 #include "get_next_line.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(char *str)
 {
 	int	i;
 
@@ -19,7 +19,7 @@ char	*check_for_backslash_n(char *str)
 		return	(0);
 	while	(str[i] != '\0')
 	{
-		if(str[i] == '\n')
+		if(str[i] == (char)'\n')
 			return	((char*)&str[i]);
 		i++;
 	}
@@ -28,8 +28,9 @@ char	*check_for_backslash_n(char *str)
 
 char	*add_buffer_to_line(char *str1, char *str2)
 {
-	int	i;
-	int	w_length;
+	size_t	i;
+	size_t	j;
+	size_t	w_length;
 	char	*ret_str;
 
 	if(!str1)
@@ -37,13 +38,14 @@ char	*add_buffer_to_line(char *str1, char *str2)
 		str1=(char*)malloc(sizeof(char)*1);
 		str1[0]='\0';
 	}
-	if (!str1 || !str2)
+	if (!str2 || !str1)
 		return	(NULL);
-	w_length=ft_strlen(str1)+ft_strlen(str2)+1;
-	ret_str=(char*)malloc(sizeof(char)*w_length);
-	if(!ret_str)
+	w_length=ft_strlen(str1)+ft_strlen(str2);
+	ret_str=(char*)malloc(sizeof(char)*w_length+1);
+	if(ret_str==NULL)
 		return	(NULL);
 	i=0;
+	j=0;
 	if(str1)
 	{
 		while	(str1[i] != '\0')
@@ -52,11 +54,11 @@ char	*add_buffer_to_line(char *str1, char *str2)
 			i++;
 		}
 	}
-	i=0;
-	while	(str2[i] != '\0')
+	while	(str2[j] != '\0')
 	{
-		ret_str[i+ft_strlen(str1)]=str2[i];
+		ret_str[i]=str2[j];
 		i++;
+		j++;
 	}
 	ret_str[w_length]='\0';
 	free(str1);
