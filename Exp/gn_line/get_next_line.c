@@ -57,6 +57,32 @@ char	*discard_after_backslash_n(char *str)
 	return	(ret);
 }
 
+char	*clean_next_next_line(char *str)
+{
+	int		i;
+	int		j;
+	char	*ret;
+
+	i = 0;
+	if (!str[i])
+	{
+		free	(str);
+		return	(NULL);
+	}
+	while	(str[i]!='\n' && str[i])
+		i++;
+	ret=(char*)malloc(sizeof(char)*(ft_strlen(str) - i + 1));
+	if(!ret)
+		return	(NULL);
+	j=0;
+	i++;
+	while	(str[i])
+		ret[j++]=str[i++];
+	ret[i]='\0';
+	free	(str);
+	return	(ret);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	*line;
@@ -68,6 +94,7 @@ char	*get_next_line(int fd)
 	if(!line)
 		return	(NULL);
 	next_line=discard_after_backslash_n(line);
+	line=clean_next_next_line(line);
 	return	(next_line);
 }
 

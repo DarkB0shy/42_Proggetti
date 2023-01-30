@@ -43,6 +43,7 @@ char	*add_buffer_to_line(char *str1, char *str2)
 	ret_str=(char*)malloc(sizeof(char)*w_length);
 	if(!ret_str)
 		return	(NULL);
+	i=0;
 	if(str1)
 	{
 		while	(str1[i] != '\0')
