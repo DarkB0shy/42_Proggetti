@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 11:48:34 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/01/30 16:58:18 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/01/31 08:45:46 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_put_hex(unsigned int num, const char format)
 			if (format == 'x')
 				ft_putchar((num - 10) + 'a');
 			if (format == 'X')
-				ft_putchar((num - 10 + 'A'));
+				ft_putchar((num - 10) + 'A');
 		}
 	}
 }
