@@ -6,7 +6,7 @@
 #    By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 11:08:32 by dcarassi          #+#    #+#              #
-#    Updated: 2023/02/08 12:07:32 by dcarassi         ###   ########.fr        #
+#    Updated: 2023/02/08 14:01:56 by dcarassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,10 @@ NAME = so_long
 
 PRINTF = ft_printf/libftprintf.a
 
+GET_NEXT_LINE = ft_get_next_line/libftget_next_line.a
+
 ${NAME}: ${OBJS}
-	${CC} ${FLAGS} ${OBJS} ${PRINTF} -o ${NAME}
+	${CC} ${FLAGS} ${OBJS} ${PRINTF} ${GET_NEXT_LINE} -o ${NAME}
 
 all: ${NAME}
 

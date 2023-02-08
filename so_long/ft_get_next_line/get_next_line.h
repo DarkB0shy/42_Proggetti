@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/08 16:15:18 by dcarassi         ###   ########.fr       */
+/*   Created: 2023/01/24 19:11:31 by dcarassi          #+#    #+#             */
+/*   Updated: 2023/01/26 18:20:37 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int main (int argc, char **argv)
-{
-	t_game	game;
-	if (argc != 2)
-	{
-		ft_printf("Wrong input");
-		return(1);
-	}
-	game.map = init_map(argv[1], &game);
-	while (*game.map) ft_printf("%s\n", *game.map++);
-	return (0);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
+
+char	*ft_strchr(char *s, int c);
+size_t	ft_strlen(char *s);
+char	*ft_strjoin(char *backup, char *buff);
+char	*ft_get_line(int fd, char *line);
+char	*new_line(char *line);
+char	*ft_get_next_line(char *str);
+char	*get_next_line(int fd);
+
+#endif
