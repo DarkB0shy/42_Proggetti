@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/09 16:34:24 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:19:50 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**fill_map(char **map, int lines, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	while (i < lines)
+	while (i <= lines)
 	{
 		map[i] = get_next_line(fd);
 		i++;
@@ -39,16 +39,16 @@ int	wall_check(char **map)
 	while (map[++i])
 	{
 		if (ft_strlen(map[i]) != len)
-			return (0 * ft_printf("Map not rectangular"));
-		if (map[i][len - 1] != '1' || map[i][0] != '1')
-			return (0 * ft_printf("Map not closed on side"));
+			return (0 * ft_printf("Map is missing some bricks\n"));
+		if (map[i][0] != '1' || map[i][len - 2] != '1')
+			return (0 * ft_printf("Map needs a side brick\n"));
 	}
 	while (--len > 0)
 	{
-		if (map[0][len] != '1')
-			return (0 * ft_printf("Map not cclosed on top"));
-		if (map[i - 1][len] != '1')
-			return (0 * ft_printf("Map not closed on bot"));
+		if (map[0][len - 1] != '1')
+			return (0 * ft_printf("Map needs a top brick\n"));
+		if (map[i - 1][len - 1] != '1')
+			return (0 * ft_printf("Map needs a bot brick\n"));
 	}
 	return (1);
 }
@@ -86,10 +86,10 @@ char	**init_map(char *file, t_game *game)
 	game->map = new_map(file);
 	if (!game->map)
 	{
-		ft_printf("Something wrong with the map");
+		ft_printf("Something wrong with the map\n");
 		return (NULL);
 	}
-	if (wall_check(game->map) == 0)
+	if (!wall_check(game->map))
 		return (NULL);
 	return (game->map);
 }
