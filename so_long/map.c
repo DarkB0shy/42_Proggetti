@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/09 19:19:50 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/10 11:27:03 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,46 @@ int	wall_check(char **map)
 	while (map[++i])
 	{
 		if (ft_strlen(map[i]) != len)
-			return (0 * ft_printf("Map is missing some bricks\n"));
+			return (0 * ft_printf("Map is not rectangular\n"));
 		if (map[i][0] != '1' || map[i][len - 2] != '1')
-			return (0 * ft_printf("Map needs a side brick\n"));
+			return (0 * ft_printf("Map needs a brick\n"));
 	}
 	while (--len > 0)
 	{
 		if (map[0][len - 1] != '1')
-			return (0 * ft_printf("Map needs a top brick\n"));
+			return (0 * ft_printf("Map needs a brick\n"));
 		if (map[i - 1][len - 1] != '1')
-			return (0 * ft_printf("Map needs a bot brick\n"));
+			return (0 * ft_printf("Map needs a brick\n"));
 	}
+	return (1);
+}
+
+int	map_check(char **map)
+{
+	int	i;
+	int	j;
+	int	PCHAQUE;
+	int	CCHAQUE;
+	int	ECHAQUE;
+
+	PCHAQUE = 0;
+	CCHAQUE = 0;
+	ECHAQUE = 0;
+	i = 0;
+	while (map[i] != NULL)
+	{
+		j = 0;
+		while (j < ft_strlen(map[0]))
+		{
+			if (map[i][j] == 'P')	PCHAQUE++;
+			else if (map[i][j] == 'C')	CCHAQUE++;
+			else if (map[i][j] == 'E')	ECHAQUE++;
+			j++;
+		}
+		i++;
+	}
+	if (!PCHAQUE || !CCHAQUE || !ECHAQUE)
+		return (0);
 	return (1);
 }
 
@@ -90,6 +119,8 @@ char	**init_map(char *file, t_game *game)
 		return (NULL);
 	}
 	if (!wall_check(game->map))
+		return (NULL);
+	if (!map_check(game->map))
 		return (NULL);
 	return (game->map);
 }
