@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/10 11:27:03 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/10 12:04:29 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	wall_check(char **map)
 	i = -1;
 	while (map[++i])
 	{
-		if (ft_strlen(map[i]) != len)
+		if (ft_strlen(map[i]) != len )
 			return (0 * ft_printf("Map is not rectangular\n"));
 		if (map[i][0] != '1' || map[i][len - 2] != '1')
 			return (0 * ft_printf("Map needs a brick\n"));

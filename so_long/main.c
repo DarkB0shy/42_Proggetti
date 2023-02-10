@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/10 11:27:21 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:59:31 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,26 @@ void	print_mat(char **mat)
 int main (int argc, char **argv)
 {
 	t_game	game;
-	int		i;
-	int		j;
 
-	i = -1;
+	void	*mlx;
+	void	*img;
+	void	*mlx_win;
+	int	dim;
+
 	if (argc != 2)
-		return(1 * ft_printf("Need a .ber file to start"));
+		return(1 * ft_printf("Need a .ber file to start\n"));
+	else
+	{
+	game.mlx = mlx_init();
 	game.map = init_map(argv[1], &game);
 	if (!game.map)
 		return (1);
 	print_mat(game.map);
+	dim = 64;
+	game.win = mlx_new_window(game.mlx, 444, 444, "!");
+	img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola-1.png.xpm", &dim, &dim);
+	mlx_put_image_to_window(game.mlx, game.win, img, 0, 0);
+	mlx_loop(game.mlx);
+	}
 	return (0);
 }
