@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/10 14:29:02 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:08:48 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
+	int		loop;
 	int		width;
 	int		heigth;
 	char	**map;

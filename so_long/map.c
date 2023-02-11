@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/10 12:04:29 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 10:47:36 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**fill_map(char **map, int lines, char *file)
 
 	i = 0;
 	fd = open(file, O_RDONLY);
-	while (i <= lines)
+	while (i < lines)
 	{
 		map[i] = get_next_line(fd);
 		i++;

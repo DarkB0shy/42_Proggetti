@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/10 17:23:32 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:07:49 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int main (int argc, char **argv)
 	t_game	game;
 
 	void	*mlx;
-	void	*img;
+	void	*walls_img;
+	void	*empty_img;
 	void	*mlx_win;
 	int	dim;
 	int	i;
@@ -67,11 +68,22 @@ int main (int argc, char **argv)
 	ft_printf("%d\n", map_linez);
 	ft_printf("%d\n", ft_strlen(game.map[0]) - 1);
 	game.win = mlx_new_window(game.mlx, ((ft_strlen(game.map[0]) - 1) * 64), (map_linez * 64), "so_long");
-	// while (game.map[i] != NULL)
-	// {
-
-	// }
-	mlx_loop(game.mlx);
+	walls_img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola1.xpm", &dim, &dim);
+	empty_img = mlx_xpm_file_to_image(game.mlx, "Spritez/empty.xpm", &dim, &dim);
+	while (game.map[i] != NULL)
+	{
+		j = 0;
+		while (game.map[i][j])
+		{
+			if (game.map[i][j] == '1')
+				mlx_put_image_to_window(game.mlx, game.win, walls_img, j * 64, i * 64);
+			else
+				mlx_put_image_to_window(game.mlx, game.win, empty_img, j * 64, i * 64);
+			j++;
+		}
+		i++;
+	}
+	game.loop = mlx_loop(game.mlx);
 	}
 	return (0);
 }
