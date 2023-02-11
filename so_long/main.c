@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/11 11:07:49 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 11:44:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int main (int argc, char **argv)
 	void	*mlx;
 	void	*walls_img;
 	void	*empty_img;
+	void	*coll_img;
 	void	*mlx_win;
+	void	*boshy_img;
 	int	dim;
 	int	i;
 	int	j;
@@ -65,12 +67,14 @@ int main (int argc, char **argv)
 	// game.win = mlx_new_window(game.mlx, ft_strlen(game.map[0]), map_linez, "so_long");
 	// img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola-1.png.xpm", &dim, &dim);
 	i = 0;
-	ft_printf("%d\n", map_linez);
-	ft_printf("%d\n", ft_strlen(game.map[0]) - 1);
+	// ft_printf("%d\n", map_linez);
+	// ft_printf("%d\n", ft_strlen(game.map[0]) - 1);
 	game.win = mlx_new_window(game.mlx, ((ft_strlen(game.map[0]) - 1) * 64), (map_linez * 64), "so_long");
 	walls_img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola1.xpm", &dim, &dim);
 	empty_img = mlx_xpm_file_to_image(game.mlx, "Spritez/empty.xpm", &dim, &dim);
-	while (game.map[i] != NULL)
+	coll_img = mlx_xpm_file_to_image(game.mlx, "Spritez/collectible.xpm", &dim, &dim);
+	boshy_img = mlx_xpm_file_to_image(game.mlx, "Spritez/boshy.xpm", &dim, &dim);
+	while (game.map[i] != NULL)	// Walls and empty spaces
 	{
 		j = 0;
 		while (game.map[i][j])
@@ -79,6 +83,20 @@ int main (int argc, char **argv)
 				mlx_put_image_to_window(game.mlx, game.win, walls_img, j * 64, i * 64);
 			else
 				mlx_put_image_to_window(game.mlx, game.win, empty_img, j * 64, i * 64);
+			j++;
+		}
+		i++;
+	}
+	i = 0;
+	while (game.map[i] != NULL)	// Player, collectibles and exit
+	{
+		j = 0;
+		while (game.map[i][j])
+		{
+			if (game.map[i][j] == 'C')
+				mlx_put_image_to_window(game.mlx, game.win, coll_img, j * 64, i * 64);
+			if (game.map[i][j] == 'P')
+				mlx_put_image_to_window(game.mlx, game.win, boshy_img, j * 64, i * 64);
 			j++;
 		}
 		i++;
