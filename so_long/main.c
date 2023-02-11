@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/11 11:44:02 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 12:46:49 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,6 @@ void	print_mat(char **mat)
 int main (int argc, char **argv)
 {
 	t_game	game;
-
-	void	*mlx;
-	void	*walls_img;
-	void	*empty_img;
-	void	*coll_img;
-	void	*mlx_win;
-	void	*boshy_img;
 	int	dim;
 	int	i;
 	int	j;
@@ -70,33 +63,33 @@ int main (int argc, char **argv)
 	// ft_printf("%d\n", map_linez);
 	// ft_printf("%d\n", ft_strlen(game.map[0]) - 1);
 	game.win = mlx_new_window(game.mlx, ((ft_strlen(game.map[0]) - 1) * 64), (map_linez * 64), "so_long");
-	walls_img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola1.xpm", &dim, &dim);
-	empty_img = mlx_xpm_file_to_image(game.mlx, "Spritez/empty.xpm", &dim, &dim);
-	coll_img = mlx_xpm_file_to_image(game.mlx, "Spritez/collectible.xpm", &dim, &dim);
-	boshy_img = mlx_xpm_file_to_image(game.mlx, "Spritez/boshy.xpm", &dim, &dim);
+	game.wall_img = mlx_xpm_file_to_image(game.mlx, "Spritez/viola1.xpm", &dim, &dim);
+	game.nonwall_img = mlx_xpm_file_to_image(game.mlx, "Spritez/empty.xpm", &dim, &dim);
+	game.collectible_img = mlx_xpm_file_to_image(game.mlx, "Spritez/collectible.xpm", &dim, &dim);
+	game.boshy_img = mlx_xpm_file_to_image(game.mlx, "Spritez/boshy.xpm", &dim, &dim);
 	while (game.map[i] != NULL)	// Walls and empty spaces
 	{
 		j = 0;
 		while (game.map[i][j])
 		{
 			if (game.map[i][j] == '1')
-				mlx_put_image_to_window(game.mlx, game.win, walls_img, j * 64, i * 64);
+				mlx_put_image_to_window(game.mlx, game.win, game.wall_img, j * 64, i * 64);
 			else
-				mlx_put_image_to_window(game.mlx, game.win, empty_img, j * 64, i * 64);
+				mlx_put_image_to_window(game.mlx, game.win, game.nonwall_img, j * 64, i * 64);
 			j++;
 		}
 		i++;
 	}
 	i = 0;
-	while (game.map[i] != NULL)	// Player, collectibles and exit
+	while (game.map[i] != NULL)	// Player collectibles and exit
 	{
 		j = 0;
 		while (game.map[i][j])
 		{
 			if (game.map[i][j] == 'C')
-				mlx_put_image_to_window(game.mlx, game.win, coll_img, j * 64, i * 64);
+				mlx_put_image_to_window(game.mlx, game.win, game.collectible_img, j * 64, i * 64);
 			if (game.map[i][j] == 'P')
-				mlx_put_image_to_window(game.mlx, game.win, boshy_img, j * 64, i * 64);
+				mlx_put_image_to_window(game.mlx, game.win, game.boshy_img, j * 64, i * 64);
 			j++;
 		}
 		i++;

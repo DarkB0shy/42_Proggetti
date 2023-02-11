@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/11 10:08:48 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/11 12:31:16 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,12 @@ typedef struct s_game
 	int		width;
 	int		heigth;
 	char	**map;
+	void	*wall_img;
+	void	*nonwall_img;
+	void	*collectible_img;
+	void	*boshy_img;
+	void	*exit_img;
+	int		collectibles;
 }	t_game;
 
 char	**init_map(char *file, t_game *game);
