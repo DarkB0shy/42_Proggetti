@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 16:06:49 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:41:30 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,15 @@ typedef struct s_image
 	int			endian;
 }	t_image;
 
+typedef struct s_window
+{
+	void		*reference;
+	char		*name;
+	t_image		background;
+	t_vector	size;
+	t_vector	scale;
+}	t_window;
+
 typedef struct s_element
 {
 	int			framecount;
@@ -57,7 +66,7 @@ typedef struct s_game
 {
 	char		**map;
 	void		*mlx;
-	void		*win;
+	t_window	*window;
 	t_element	player;
 	t_element	collectible;
 	t_element	exit;
@@ -68,7 +77,7 @@ typedef struct s_game
 	int			status;
 	int			b;
 	int			h;
-}				t_game;
+}	t_game;
 
 char	**init_map(char *file, t_game *game);
 void	setup_sprites(t_game *new_game);
