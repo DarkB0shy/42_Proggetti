@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/11 12:31:16 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/13 14:56:25 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,60 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# define IMG_SIZE 32
+# ifndef SIZE
+#	define SIZE 64
+# endif
+
+typedef struct s_vector
+{
+	int	x;
+	int	y;
+}	t_vector;
+
+typedef struct s_image
+{
+	void		*reference;
+	t_vector	size;
+	t_vector	pos;
+	char		*pixels;
+	int			bits_per_pixel;
+	int			line_size;
+	int			endian;
+}	t_image;
+
+typedef struct s_element
+{
+	int			framecount;
+	int			nb;
+	void		*reference;
+	t_vector	pos;
+	t_image		currentimg;
+	t_image		img0;
+	t_image		img1;
+	t_image		img2;
+	t_image		img3;
+}	t_element;
 
 typedef struct s_game
 {
-	void	*mlx;
-	void	*win;
-	int		loop;
-	int		width;
-	int		heigth;
-	char	**map;
-	void	*wall_img;
-	void	*nonwall_img;
-	void	*collectible_img;
-	void	*boshy_img;
-	void	*exit_img;
-	int		collectibles;
-}	t_game;
+	char		**map;
+	void		*mlx;
+	void		*win;
+	t_element	player;
+	t_element	collectible;
+	t_element	exit;
+	t_element	floor;
+	t_element	wall;
+	int			nbmoves;
+	char		*str;
+	int			status;
+	int			b;
+	int			h;
+}				t_game;
 
 char	**init_map(char *file, t_game *game);
+void	setup_sprites(t_game *new_game);
+void	init_game(t_game *new_game);
+void	update_screen(t_game *newgame);
 
 #endif
