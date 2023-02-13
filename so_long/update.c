@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:16:55 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 15:08:53 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:57:58 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ void	draw_player_and_collectibles(t_game *newgame)
 		}
 		i++;
 	}
-
 }
 
-void	update_screen(t_game *newgame)
+int	update_screen(t_game *newgame)
 {
-	
+	mlx_clear_window(newgame->mlx, newgame->win);
 	draw_map(newgame);
 	draw_player_and_collectibles(newgame);
+	return (1);
 }

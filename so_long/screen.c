@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:08:02 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 14:24:40 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:05:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,6 @@ void	init_game(t_game *new_game)
 {
 	new_game->mlx = mlx_init();
 	init_screen(new_game);
+	mlx_loop_hook(new_game->mlx, update_screen, (void*)new_game);
+	mlx_hook(new_game->win, 2, 0, get_input, (void*)new_game);
 }

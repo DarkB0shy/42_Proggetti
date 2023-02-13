@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 14:56:25 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:06:49 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ typedef struct s_game
 char	**init_map(char *file, t_game *game);
 void	setup_sprites(t_game *new_game);
 void	init_game(t_game *new_game);
-void	update_screen(t_game *newgame);
+int	update_frames(t_game *newgame);
+int		update_screen(t_game *newgame);
+int	get_input(int key, t_game *newgame);
 
 #endif
