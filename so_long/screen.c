@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:08:02 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 17:46:29 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/14 11:58:16 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ void	init_screen(t_game *newgame)
 		}
 		i++;
 	}
-	newgame->window->reference = mlx_new_window(newgame->mlx, (ft_strlen(newgame->map[0]) - 1) * 64, map_linez * 64, "so_long");
+	// newgame->window->reference =
+	// newgame->window.reference = mlx_new_window(newgame->mlx, (ft_strlen(newgame->map[0]) - 1) * 64, map_linez * 64, "so_long");
 }
 
 void	init_game(t_game *new_game)

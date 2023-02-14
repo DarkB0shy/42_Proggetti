@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 16:41:56 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:03:39 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	print_mat(char **mat)
 	i = 0;
 	while (mat[i] != NULL)
 	{
-		ft_printf("%d -> %s\n", i, mat[i]);
+		ft_printf("%d -> %s", i, mat[i]);
 		i++;
 	}
 }
@@ -35,10 +35,11 @@ int main (int argc, char **argv)
 		game.map = init_map(argv[1], &game);
 		if (!game.map)
 			return (1);
-		init_game(&game);
-		setup_sprites(&game);
-		update_screen(&game);
-		mlx_loop(game.mlx); //always the last command
+		print_mat(game.map);
+		// init_game(&game);
+		// setup_sprites(&game);
+		// update_screen(&game);
+		// mlx_loop(game.mlx); always the last command
 	// dim = 64;
 	// game.win = mlx_new_window(game.mlx, 444, 444, "!");
 	// mlx_put_image_to_window(game.mlx, game.win, img, 0, 0);
