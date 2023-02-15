@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/15 17:06:23 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:18:22 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,11 @@ int	map_check(char *file, t_game *game)
 			else if (game->map[i][j] == 'C')
 				game->collectible.nb++;
 			else if (game->map[i][j] == 'E')
+			{
 				game->exit.nb++;
+				game->exit.pos.x = i;
+				game->exit.pos.y = j;
+			}
 			j++;
 		}
 		i++;
