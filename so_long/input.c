@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:39:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/15 18:04:26 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:23:26 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int	get_input(int key, t_game *newgame)
 	// printf("%d\n", key);
 	// ft_printf("\n%d\n", newgame->player.pos.x);
 	// ft_printf("%d\n", newgame->player.pos.y);
-	ft_printf("%d\n", newgame->collectible.nb);
 	if (key == 53)
 		exit(2);
 	else if (key == 126)
