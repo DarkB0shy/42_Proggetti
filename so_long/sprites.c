@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:33:48 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 15:45:24 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/15 14:50:29 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 void	assign_sprite(t_game *new_game, t_image *image, char *str)
 {
-	image->reference = mlx_xpm_file_to_image(new_game->mlx, str, &image->size.x, &image->size.y);
+	int	dimma;
+
+	dimma = 64;
+	image->reference = mlx_xpm_file_to_image(new_game->mlx, str, &dimma, &dimma);
 }
 
 void	setup_sprites(t_game *new_game)

@@ -6,66 +6,89 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/14 18:34:46 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:18:50 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-int	get_map_lines(char *file)
-{
-	int	byte_read;
-	int	lines;
-	int	fd;
-	int	buffer;
-
-	lines = 1;
-	fd = open(file, O_RDONLY);
-	if (!fd)
-		return (0);
-	byte_read = read(fd, &buffer, 1);
-	while (byte_read > 0)
-	{
-		if (buffer == '\n')
-			lines++;
-		byte_read = read(fd, &buffer, 1);
-	}
-	close (fd);
-	return (lines);
-}
+#include "utilz.c"
 
 void	parse_map(char *file, t_game *game)
 {
 	int		i;
 	int		fd;
 	char	*line;
+	int		c_line;
 
-	game->map = malloc(sizeof(char *) * get_map_lines(file));
-	i = 1;
+	c_line = 0;
 	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	if (line)
-		game->map[0] = line;
-	while (line)
+	game->map = malloc (sizeof(char *) * get_map_lines(file));
+	while (c_line < get_map_lines(file))
 	{
-		line = get_next_line(fd);
-		game->map[i] = line;
-		i++;
+		game->map[c_line] = get_next_line(fd);
+		c_line++;
 	}
 	close(fd);
+	game->map[c_line] = NULL;
 }
 
 int	wall_check(char *file, t_game *game)
 {
+	int	i;
 
+	i = 0;
+	while (i < (get_map_columns(file) - 2))
+	{
+		if (game->map[0][i] != '1' || game->map[get_map_lines(file) - 1][i] != '1')
+			return (0 * ft_printf("No brick bot-top\n"));
+		i++;
+	}
+	i = 0;
+	while (i < get_map_lines(file) - 1)
+	{
+		if (game->map[i][0] != '1' || game->map[i][get_map_columns(file) - 2] != '1')
+			return (0 * ft_printf("No brick sidelane\n"));
+		i++;
+	}
+	if (game->map[i][get_map_columns(file) - 2] != '1')
+		return (0 * ft_printf("No corner brick\n"));
+	return (1);
+}
+
+int	map_check(char *file, t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] == 'P')
+				game->player.nb++;
+			else if (game->map[i][j] == 'C')
+				game->collectible.nb++;
+			else if (game->map[i][j] == 'E')
+				game->exit.nb++;
+			j++;
+		}
+		i++;
+	}
+	if (!game->player.nb || !game->collectible.nb)
+		return (0 * ft_printf("No player-collectible\n"));
+	if (!game->exit.nb)
+		return (0 * ft_printf("No exit\n"));
+	return (1);
 }
 
 char	**init_map(char *file, t_game *game)
 {
 	parse_map(file, game);
-	// if (!wall_check(file, game))
-	// 	return (NULL);
-	// if (!map_check(game->map))
-	// 	return (NULL);
+	if (!wall_check(file, game))
+		return (NULL);
+	if (!map_check(file, game))
+		return (NULL);
 	return (game->map);
 }

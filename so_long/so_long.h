@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 17:41:30 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:34:43 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,14 @@ typedef struct s_image
 	int			endian;
 }	t_image;
 
-typedef struct s_window
-{
-	void		*reference;
-	char		*name;
-	t_image		background;
-	t_vector	size;
-	t_vector	scale;
-}	t_window;
+// typedef struct s_window
+// {
+// 	void		*reference;
+// 	char		*name;
+// 	t_image		background;
+// 	t_vector	size;
+// 	t_vector	scale;
+// }	t_window;
 
 typedef struct s_element
 {
@@ -66,7 +66,7 @@ typedef struct s_game
 {
 	char		**map;
 	void		*mlx;
-	t_window	*window;
+	void		*window; //al posto di void t_window
 	t_element	player;
 	t_element	collectible;
 	t_element	exit;
@@ -81,9 +81,11 @@ typedef struct s_game
 
 char	**init_map(char *file, t_game *game);
 void	setup_sprites(t_game *new_game);
-void	init_game(t_game *new_game);
-int	update_frames(t_game *newgame);
+void	init_game(char *file, t_game *new_game);
+int		update_frames(t_game *newgame);
 int		update_screen(t_game *newgame);
-int	get_input(int key, t_game *newgame);
+int		get_input(int key, t_game *newgame);
+int		get_map_lines(char *file);
+int		get_map_columns(char *file);
 
 #endif
