@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:11:25 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/15 15:11:59 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:17:21 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,11 @@ int	get_map_columns(char *file)
 			byte_read = read(fd, &buffer, 1);
 		}
 		else
-			byte_read = 0;
+		{
+			close (fd);
+			return (columns);
+		}
 	}
 	close (fd);
-	return (columns);
+	return (0);
 }

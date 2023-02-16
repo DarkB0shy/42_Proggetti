@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:16:55 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 13:01:49 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:08:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,10 @@ void	draw_player_and_collectibles(t_game *newgame)
 		{
 			if (newgame->map[i][j] == 'C')
 				mlx_put_image_to_window(newgame->mlx, newgame->window, newgame->collectible.img0.reference, j * 64, i * 64);
-			if (newgame->map[i][j] == 'P')
-			{
+			else if (newgame->map[i][j] == 'P')
 				mlx_put_image_to_window(newgame->mlx, newgame->window, newgame->player.currentimg.reference, j * 64, i * 64);
-			}
-			if (newgame->collectible.nb == 0)
-				mlx_put_image_to_window(newgame->mlx, newgame->window, newgame->exit.img0.reference, newgame->exit.pos.y * 64, newgame->exit.pos.x * 64);
+			else if (newgame->map[i][j] == 'E')
+					mlx_put_image_to_window(newgame->mlx, newgame->window, newgame->exit.img0.reference, j * 64, i * 64);
 			j++;
 		}
 		i++;

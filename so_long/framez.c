@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:52:28 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/13 16:06:45 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:04:17 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	update_frames(t_game *newgame)
 {
-	int	frame;
-
-	frame = 0;
 	update_screen(newgame);
 	return (0);
 }

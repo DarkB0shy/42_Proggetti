@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:24 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 11:34:36 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 14:22:30 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main (int argc, char **argv)
 		init_game(argv[1], &game);
 		setup_sprites(&game);
 		update_screen(&game);
-		mlx_loop(game.mlx); // always the last command
+		mlx_loop(game.mlx);
 	// dim = 64;
 	// game.win = mlx_new_window(game.mlx, 444, 444, "!");
 	// mlx_put_image_to_window(game.mlx, game.win, img, 0, 0);

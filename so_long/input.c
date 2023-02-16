@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:39:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 11:42:51 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:12:17 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	move_up(t_game *newgame)
 
 void	move_down(t_game *newgame)
 {
-	if (newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == '1')
+	if (newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == '1' || (newgame->map[newgame->player.pos.y + 1][newgame->player.pos.x] == 'E' && newgame->collectible.nb != 0))
 		;
 	else
 	{
@@ -54,7 +54,7 @@ void	move_down(t_game *newgame)
 
 void	move_right(t_game *newgame)
 {
-	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == '1')
+	if (newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == '1' || (newgame->map[newgame->player.pos.y][newgame->player.pos.x + 1] == 'E' && newgame->collectible.nb != 0))
 		;
 	else
 	{
