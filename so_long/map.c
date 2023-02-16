@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 19:10:47 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 19:51:39 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,10 @@ void	parse_map(char *file, t_game *game)
 	game->map = malloc(sizeof(char *) * n_linez);
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
-	while (line)
+	while (c_line < n_linez)
 	{
-		// ft_printf("%s\n", game->map[c_line]);
 		game->map[c_line] = ft_strdup(line);
+		// ft_printf("%s\n", game->map[c_line]);
 		if (game->map[c_line][ft_strlen(game->map[c_line]) - 1] == '\n')
 			game->map[c_line][ft_strlen(game->map[c_line]) - 1] = '\0';
 		free(line);
@@ -92,8 +92,6 @@ void	parse_map(char *file, t_game *game)
 	close(fd);
 	game->map[c_line] = NULL;
 }
-
-// no brick bot-top, no brick sidelane
 
 int	wall_check(char *file, t_game *game)
 {
