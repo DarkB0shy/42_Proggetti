@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 19:51:39 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:17:51 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,20 +73,22 @@ void	parse_map(char *file, t_game *game)
 	int		n_linez;
 
 	c_line = 0;
-	n_linez = 0;
 	n_linez = get_map_lines(file);
-	game->map = malloc(sizeof(char *) * n_linez);
+	game->map = malloc(sizeof(char *) * n_linez + 1);
 	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (c_line < n_linez)
+	i = 1;
+	while (1)
 	{
-		game->map[c_line] = ft_strdup(line);
-		// ft_printf("%s\n", game->map[c_line]);
+		line = get_next_line(fd);
+		if (!line || line[0] == 10)
+			break ;
+			// ft_printf("%s\n", game->map[c_line]);
+			game->map[c_line] = ft_strdup(line);
 		if (game->map[c_line][ft_strlen(game->map[c_line]) - 1] == '\n')
 			game->map[c_line][ft_strlen(game->map[c_line]) - 1] = '\0';
 		free(line);
-		line = get_next_line(fd);
 		c_line++;
+		// line = get_next_line(fd);
 	}
 	free(line);
 	close(fd);
@@ -157,9 +159,9 @@ int	map_check(char *file, t_game *game)
 char	**init_map(char *file, t_game *game)
 {
 	parse_map(file, game);
-	// if (!wall_check(file, game))
-	// 	return (NULL);
-	// if (!map_check(file, game))
-	// 	return (NULL);
+	if (!wall_check(file, game))
+		return (NULL);
+	if (!map_check(file, game))
+		return (NULL);
 	return (game->map);
 }

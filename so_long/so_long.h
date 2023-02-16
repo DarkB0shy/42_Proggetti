@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 16:41:54 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:15:01 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-# ifndef SIZE
-#	define SIZE 64
-# endif
 
 typedef struct s_vector
 {
