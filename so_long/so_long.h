@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/15 15:34:43 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:41:54 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,15 @@ typedef struct s_game
 	int			b;
 	int			h;
 }	t_game;
+
+/* minilibft*/
+void	*ft_calloc(size_t nmeb, size_t size);
+char	*ft_strdup(const char *s);
+void	ft_bzero(void *str, size_t n);
+void	*ft_memset(void *str, int c, size_t n);
+
+
+
 
 char	**init_map(char *file, t_game *game);
 void	setup_sprites(t_game *new_game);

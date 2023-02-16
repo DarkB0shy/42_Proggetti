@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:11:25 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 14:17:21 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:02:00 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ int	get_map_lines(char *file)
 	int	buffer;
 
 	lines = 1;
+
 	fd = open(file, O_RDONLY);
 	if (!fd)
 		return (0);
-	byte_read = read(fd, &buffer, 1);
+	byte_read = 1;
 	buffer = 0;
 	while (byte_read > 0)
 	{
@@ -61,5 +62,6 @@ int	get_map_columns(char *file)
 		}
 	}
 	close (fd);
+	// ft_printf("%d")
 	return (0);
 }
