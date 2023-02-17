@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 12:12:34 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:43:51 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,10 @@ void	map_check(char *file, t_game *game)
 		j = 0;
 		while (game->map[i][j])
 		{
+			if (game->map[i][j] != '0' && game->map[i][j] != '1' &&
+					game->map[i][j] != 'C' && game->map[i][j] != 'E' &&
+					game->map[i][j] != 'P')
+				wrong_map();
 			if (game->map[i][j] == 'C')
 				game->collectible.nb++;
 			else if (game->map[i][j] == 'E')
@@ -117,8 +121,6 @@ void	map_check(char *file, t_game *game)
 char	**init_map(char *file, t_game *game)
 {
 	parse_map(file, game);
-	if (!wall_check(file, game))
-		return (NULL);
 	map_check(file, game);
 	if (!game->collectible.nb)
 	{
@@ -136,5 +138,7 @@ char	**init_map(char *file, t_game *game)
 		ft_printf("No player\n");
 		exit(2);
 	}
+	if (!wall_check(file, game))
+		return (NULL);
 	return (game->map);
 }

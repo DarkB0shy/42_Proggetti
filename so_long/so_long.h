@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 12:03:36 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:44:10 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ int		update_screen(t_game *newgame);
 int		get_input(int key, t_game *newgame);
 int		get_map_lines(char *file);
 int		get_map_columns(char *file);
+void	wrong_map(void);
 
 #endif

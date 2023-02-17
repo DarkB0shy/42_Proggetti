@@ -6,11 +6,17 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:11:25 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 12:13:27 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:44:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	wrong_map(void)
+{
+	ft_printf("Wrong map\n");
+	exit(0);
+}
 
 int	get_map_lines(char *file)
 {
