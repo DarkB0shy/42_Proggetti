@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 14:43:51 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:16:40 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	parse_map(char *file, t_game *game)
 {
-	int		i;
 	int		fd;
 	char	*line;
 	int		c_line;
@@ -23,18 +22,19 @@ void	parse_map(char *file, t_game *game)
 	c_line = 0;
 	n_linez = get_map_lines(file);
 	game->map = malloc(sizeof(char *) * n_linez + 1);
+	game->b = 0;
 	fd = open(file, O_RDONLY);
-	i = 1;
 	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line || line[0] == 10)
-			break ;
-			game->map[c_line] = ft_strdup(line);
+			break;
+		game->map[c_line] = ft_strdup(line);
 		if (game->map[c_line][ft_strlen(game->map[c_line]) - 1] == '\n')
 			game->map[c_line][ft_strlen(game->map[c_line]) - 1] = '\0';
 		free(line);
 		c_line++;
+		game->b++;
 	}
 	free(line);
 	close(fd);
@@ -49,12 +49,12 @@ int	wall_check(char *file, t_game *game)
 	while (i < (get_map_columns(file) - 2))
 	{
 		if (game->map[0][i] != '1' ||
-		game->map[get_map_lines(file) - 1][i] != '1')
+		game->map[game->b - 1][i] != '1')
 			return (0 * ft_printf("No brick bot-top\n"));
 		i++;
 	}
 	i = 0;
-	while (i < get_map_lines(file) - 1)
+	while (i < game->b - 1)
 	{
 		if (game->map[i][0] != '1' ||
 		game->map[i][get_map_columns(file) - 2] != '1')

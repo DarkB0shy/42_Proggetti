@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:08:02 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 12:14:40 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:13:30 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_screen(char *file, t_game *newgame)
 	int	linez;
 	int	colz;
 
-	linez = get_map_lines(file) * 64;
+	linez = newgame->b * 64;
 	colz = (get_map_columns(file) - 1) * 64;
 	newgame->window = mlx_new_window(newgame->mlx, colz, linez, "so_long");
 	mlx_hook(newgame->window, 17, 0, ft_close, 0);
