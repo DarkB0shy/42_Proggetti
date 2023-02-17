@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:29 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 16:16:40 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:32:35 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	parse_map(char *file, t_game *game)
 	n_linez = get_map_lines(file);
 	game->map = malloc(sizeof(char *) * n_linez + 1);
 	game->b = 0;
+	game->h = 0;
 	fd = open(file, O_RDONLY);
 	while (1)
 	{
@@ -36,6 +37,7 @@ void	parse_map(char *file, t_game *game)
 		c_line++;
 		game->b++;
 	}
+	game->h = ft_strlen(game->map[0]);
 	free(line);
 	close(fd);
 	game->map[c_line] = NULL;
