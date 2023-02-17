@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:16:55 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 15:08:02 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:11:00 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	draw_player_and_collectibles(t_game *newgame)
 		i++;
 	}
 }
+
+
 
 void	update_player_frame(t_game *newgame)
 {

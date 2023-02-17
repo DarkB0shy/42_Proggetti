@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 15:39:22 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 15:12:17 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:25:02 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,19 +94,19 @@ void	move_left(t_game *newgame)
 
 int	get_input(int key, t_game *newgame)
 {
-	// printf("%d\n", key);
+	printf("%d\n", key);
 	// ft_printf("\n%d\n", newgame->player.pos.x);
 	// ft_printf("%d\n", newgame->player.pos.y);
-	ft_printf("N moves: %d\n", newgame->nbmoves);
+	// ft_printf("N moves: %d\n", newgame->nbmoves);
 	if (key == 53)
 		exit(2);
-	else if (key == 126)
+	else if (key == 126 || key == 13)
 		move_up(newgame);
-	else if (key == 123)
+	else if (key == 123 || key == 0)
 		move_left(newgame);
-	else if (key == 125)
+	else if (key == 125 || key == 1)
 		move_down(newgame);
-	else if (key == 124)
+	else if (key == 124 || key == 2)
 		move_right(newgame);
 	return (0);
 }
