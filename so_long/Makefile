@@ -6,11 +6,11 @@
 #    By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/08 11:08:32 by dcarassi          #+#    #+#              #
-#    Updated: 2023/02/13 16:05:35 by dcarassi         ###   ########.fr        #
+#    Updated: 2023/02/17 12:01:42 by dcarassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.c map.c screen.c sprites.c update.c input.c framez.c
+SRCS = main.c map.c screen.c sprites.c update.c input.c utilz.c utilz_2.c
 
 OBJS = ${SRCS:.c=.o}
 

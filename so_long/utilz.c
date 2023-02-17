@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 15:11:25 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 11:27:30 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:13:27 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	get_map_lines(char *file)
 	int	buffer;
 
 	lines = 1;
-
 	fd = open(file, O_RDONLY);
 	if (!fd)
 		return (0);

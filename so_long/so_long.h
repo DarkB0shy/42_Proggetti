@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 10:40:33 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/16 20:15:01 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:03:36 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include "ft_get_next_line/get_next_line.h"
 # include <stdio.h>
 # include <fcntl.h>
-
 
 typedef struct s_vector
 {
@@ -37,15 +36,6 @@ typedef struct s_image
 	int			endian;
 }	t_image;
 
-// typedef struct s_window
-// {
-// 	void		*reference;
-// 	char		*name;
-// 	t_image		background;
-// 	t_vector	size;
-// 	t_vector	scale;
-// }	t_window;
-
 typedef struct s_element
 {
 	int			framecount;
@@ -63,7 +53,7 @@ typedef struct s_game
 {
 	char		**map;
 	void		*mlx;
-	void		*window; //al posto di void t_window
+	void		*window;
 	t_element	player;
 	t_element	collectible;
 	t_element	exit;
@@ -76,19 +66,14 @@ typedef struct s_game
 	int			h;
 }	t_game;
 
-/* minilibft*/
 void	*ft_calloc(size_t nmeb, size_t size);
 char	*ft_strdup(const char *s);
 void	ft_bzero(void *str, size_t n);
 void	*ft_memset(void *str, int c, size_t n);
-
-
-
-
+int		ft_check_mapextension(char *file);
 char	**init_map(char *file, t_game *game);
 void	setup_sprites(t_game *new_game);
 void	init_game(char *file, t_game *new_game);
-int		update_frames(t_game *newgame);
 int		update_screen(t_game *newgame);
 int		get_input(int key, t_game *newgame);
 int		get_map_lines(char *file);
