@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 13:08:02 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/17 16:33:09 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/20 11:34:21 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	init_screen(char *file, t_game *newgame)
 
 	linez = 0;
 	colz = 0;
+	newgame->h = 0;
+	newgame->h = ft_strlen(newgame->map[0]);
 	linez = newgame->b * 64;
 	colz = newgame->h * 64;
 	newgame->window = mlx_new_window(newgame->mlx, colz, linez, "so_long");
