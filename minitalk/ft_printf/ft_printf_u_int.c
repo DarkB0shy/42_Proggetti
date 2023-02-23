@@ -37,7 +37,5 @@ int	ft_put_unsigned_nbr(unsigned int nb)
 			ft_putnbr(nb / 10);
 		ft_putchar(48 + nb % 10);
 	}
-	if (nb < 0)
-		return (ll_length(4294967295 - nb + 1, 10));
-	return (ll_length(nb, 10));
+	return (1);
 }
