@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int		len_ptr(uintptr_t nb);
+void	ft_put_ptr(uintptr_t nb);
+int		ft_putptr(uintptr_t nb);
 int		ft_putchar(int c);
 int		ft_putstr(char *str);
 int		ft_conversion(va_list vl, const char format);

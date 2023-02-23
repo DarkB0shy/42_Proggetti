@@ -45,6 +45,10 @@ int	ft_conversion(va_list vl, const char format)
 		char_printed += ft_putchar(va_arg(vl, int));
 	else if (format == 's')
 		char_printed += ft_putstr(va_arg(vl, char *));
+	else if (format == 'p')
+		char_printed += ft_putptr(va_arg(vl, uintptr_t));
+	else if (format == 'u')
+		char_printed += ft_put_unsigned_nbr(va_arg(vl, unsigned int));
 	else if (format == 'd')
 		char_printed += ft_putnbr(va_arg(vl, int));
 	else if (format == 'i')

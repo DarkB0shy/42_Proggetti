@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:46:07 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/22 12:45:23 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:01:00 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int	main(void)
 	sigaction(SIGUSR2, &act, NULL);
 	signal(SIGINT, &quit_server);
 	sigemptyset(&act.sa_mask);
-	while (1);
+	while (1)
 		pause();
 }
