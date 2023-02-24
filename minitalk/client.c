@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 17:01:28 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/22 17:03:08 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:54:15 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	sending_signal(int i)
 	ft_printf("Messaggio spedito al server");
 }
 
-int	main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	pid_t	c;
 

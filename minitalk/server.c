@@ -6,7 +6,7 @@
 /*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:46:07 by dcarassi          #+#    #+#             */
-/*   Updated: 2023/02/23 18:01:00 by dcarassi         ###   ########.fr       */
+/*   Updated: 2023/02/24 12:12:43 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,6 @@ void	sig_handler(int signo, siginfo_t *info, void *context)
 	}
 }
 
-void	quit_server(int i)
-{
-	(void)i;
-	ft_printf("Server chiuso\n");
-	exit(0);
-}
-
 int	main(void)
 {
 	struct sigaction	act;
@@ -49,7 +42,6 @@ int	main(void)
 	act.sa_flags = SA_SIGINFO;
 	sigaction(SIGUSR1, &act, NULL);
 	sigaction(SIGUSR2, &act, NULL);
-	signal(SIGINT, &quit_server);
 	sigemptyset(&act.sa_mask);
 	while (1)
 		pause();
