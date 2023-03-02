@@ -1,33 +1,39 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/22 10:37:31 by robegarc          #+#    #+#              #
-#    Updated: 2023/02/23 12:53:09 by robegarc         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+SRCS = push_swap.c utils.c operations.c
 
-SRC = push_swap.c utils.c operations.c
-OBJ = $(SRC:.c=.o)
-CC = gcc -Wall -Wextra -Werror -g
+OBJS = ${SRCS:.c=.o}
+
+CC = gcc
+
+CFLAGS = -Wall -Wextra -Werror
+
+RM = rm -f
+
 NAME = push_swap
-FT_PRINTF = ft_printf
-LIBRARY = ft_printf/libftprintf.a
 
-all	: $(NAME)
+PRINTF = ft_printf/libftprintf.a
 
-$(NAME) : $(OBJ)
-	make -C $(FT_PRINTF)
-	$(CC) $(OBJ) $(LIBRARY) -o $(NAME)
-clean :
-	make clean -C $(FT_PRINTF)
-	rm -f $(OBJ)
-fclean : clean
-	make fclean -C $(FT_PRINTF)
-	rm -f $(NAME)
-re : fclean clean all
+LIBFT = libft/libft.a
 
-.PHONY: clean fclean re all
+${NAME}: ${OBJS} ${LIBFT} ${PRINTF} 
+	${CC} ${CFLAGS} ${OBJS} ${PRINTF} ${LIBFT} -o ${NAME}
+
+all: ${NAME}
+
+${PRINTF}:
+	$(MAKE) -C ft_printf
+
+${LIBFT}:
+	$(MAKE) -C libft
+
+clean:
+	$(MAKE) clean -C ft_printf
+	$(MAKE) clean -C libft
+	${RM} ${OBJS}
+
+fclean:
+	$(MAKE) fclean -C ft_printf
+	$(MAKE) fclean -C libft
+	${RM} ${NAME}
+
+re: fclean all
+	

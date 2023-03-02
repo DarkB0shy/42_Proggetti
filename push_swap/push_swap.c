@@ -6,169 +6,200 @@
 /*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:07 by robegarc          #+#    #+#             */
-/*   Updated: 2023/02/28 15:19:08 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/03/01 14:55:00 by robegarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	strlen_neg_pos(const char *s)
+// t_node	*new_node(int v)
+// {
+// 	t_node	*out;
+
+// 	out = (t_node *)malloc(sizeof(t_node));
+// 	if (!out)
+// 	{
+// 		free(out);
+// 		return (NULL);
+// 	}
+// 	out->data = v;
+// 	out->next = 0;
+// 	return (out);
+// }
+
+
+// void	print_stks(t_node *a, t_node *b)
+// {
+// 	int		i, j;
+
+// 	i = 0;
+// 	ft_printf("\nSTACK A\n\n");
+// 	while (a)
+// 	{
+// 		ft_printf("%d. %d\n", ++i, a->data);
+// 		a = a->next;
+// 	}
+// 	j = 0;
+// 	ft_printf("\nSTACK B\n\n");
+// 	while (b)
+// 	{
+// 		ft_printf("%d. %d\n", ++j, b->data);
+// 		b = b->next;
+// 	}
+// 	ft_printf("\n#########################\n\n");
+// }
+
+// void	sort_3(t_node **a)
+// {
+// 	t_node *n = *a;
+
+// 	if ((n->data < n->next->data) && (n->data < n->next->next->data) &&
+// 	 (n->next->data > n->next->next->data))
+// 	{
+// 		sa(a, 1);
+// 		ra(a, 1);
+// 	}
+// 	else if ((n->data > n->next->data) && (n->data > n->next->next->data) &&
+// 	 (n->next->data > n->next->next->data))
+// 	{
+// 		sa(a, 1);
+// 		rra(a, 1);
+// 	}
+// 	else if ((n->data < n->next->data) && (n->data > n->next->next->data) &&
+// 	 (n->next->data > n->next->next->data))
+// 		rra(a, 1);
+// 	else if ((n->data > n->next->data) && (n->data > n->next->next->data) &&
+// 	 (n->next->data < n->next->next->data))
+// 		ra(a, 1);
+// 	else if ((n->data > n->next->data) && (n->data < n->next->next->data) &&
+// 	 (n->next->data < n->next->next->data))
+// 		sa(a, 1);
+// }
+
+// void	start_game(t_stack *a, t_node *b, int size)
+// {
+// 	(void)b;
+// 	// if (is_sorted(a) == 0)
+// 	// {
+// 		if (size == 2)
+// 			sa(a, 1);
+// 		else if (size == 3)
+// 			sort_3(a);
+// 	// }
+// }
+
+// t_stack	*new_stack(int dim)
+// {
+// 	t_stack	*out;
+
+// 	out = (t_stack *)malloc(sizeof(t_stack));
+// 	if (!out)
+// 	{
+// 		free(out);
+// 		return (0);
+// 	}
+// 	out->a = (int *)malloc(sizeof(int));
+// 	out->b = (int *)malloc(sizeof(int));
+// 	out->len = dim;
+// 	return (out);
+// }
+
+void	print_arraya(t_stack *stack, int len)
 {
 	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
+	ft_printf("\n\t\tSTACK A\n\n");
+	while (i < len)
+		ft_printf("\t\t%d\n", stack->a[i++]);
 }
 
-static int	count_words(const char *str, char c)
+void	print_arrayb(t_stack *stack, int len)
 {
-	int	count;
-	int	flag;
-
-	count = 0;
-	flag = 0;
-	while (*str)
-	{
-		if (*str != c && flag == 0)
-		{
-			flag = 1;
-			count++;
-		}
-		else if (*str == c)
-			flag = 0;
-		str++;
-	}
-	return (count);
-}
-
-static char	*copy_words(const char *str, int start, int end)
-{
-	char	*out;
-	int		i;
+	int	i;
 
 	i = 0;
-	out = (char *)malloc(sizeof(char) * ((end - start) + 1));
-	while (start < end)
-		out[i++] = str[start++];
-	out[i] = 0;
-	return (out);
+	ft_printf("\n\t\tSTACK B\n\n");
+	while (i < len)
+		ft_printf("\t\t%d\n", stack->b[i++]);
 }
 
-char	**ft_split(char const *s, char c)
+void	fill_stack(int ac, char **av, int i, t_stack *stack)
 {
-	char	**split;
-	int		i;
-	int		start;
-	int		j;
-
-	split = (char **)malloc(sizeof(char *) * (count_words(s, c) + 1));
-	if (!s || !split)
-		return (0);
-	start = -1;
-	i = 0;
+	int j;
+	
+	stack->a = (int *)malloc(sizeof(int) * (ac - 1));
+	stack->b = (int *)malloc(sizeof(int) * (ac - 1));
 	j = 0;
-	while (i <= strlen_neg_pos(s))
-	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == strlen_neg_pos(s)) && start >= 0)
-		{
-			split[j++] = copy_words(s, start, i);
-			start = -1;
-		}
-		i++;
-	}
-	split[j] = 0;
-	return (split);
-}
-
-t_node	*new_node(int v)
-{
-	t_node	*out;
-
-	out = (t_node *)malloc(sizeof(t_node));
-	if (!out)
-	{
-		free(out);
-		return (NULL);
-	}
-	out->data = v;
-	out->next = 0;
-	return (out);
-}
-
-
-void	print_stks(t_node *a, t_node *b)
-{
-	int		i, j;
-
-	i = 0;
-	ft_printf("\nSTACK A\n\n");
-	while (a)
-	{
-		ft_printf("%d. %d\n", ++i, a->data);
-		a = a->next;
-	}
-	j = 0;
-	ft_printf("\nSTACK B\n\n");
-	while (b)
-	{
-		ft_printf("%d. %d\n", ++j, b->data);
-		b = b->next;
-	}
-	ft_printf("\n#########################\n\n");
-}
-
-void	fill_stack(t_node **a, int ac, char **av, int i)
-{
 	while (i < ac)
-		in_tail(a, new_node(ft_atoi(av[i++])));
+		stack->a[j++] = ft_atoi(av[i++]);
+	stack->curr_a = j;
+	stack->curr_b = 0;
 }
 
-void	init(int ac, char **av, t_node **a)
+t_stack	*init(int ac, char **av)
 {
-	char	**temp;
+	char	**tmp;
 	int		len;
+	t_stack *stack;
 
-	temp = NULL;
+	tmp = NULL;
 	len = 0;
 	if (ac == 2)
 	{
-		temp = ft_split(av[1], ' ');
-		while (temp[len] != NULL)
+		tmp = ft_split(av[1], ' ');
+		while (tmp[len] != NULL)
 			len++;
-		fill_stack(a, len, temp, 0);
+		stack = malloc(len * sizeof(t_stack));
+		fill_stack(len, tmp, 0, stack);
+		free(tmp);
 	}
 	else if (ac >= 3)
-		fill_stack(a, ac, av, 1);
+	{
+		stack = malloc((ac - 1) * sizeof(t_stack));
+		fill_stack(ac, av, 1, stack);
+	}
+	else
+		return (NULL);
+	return (stack);
 }
+
 
 int main(int ac, char **av)
 {
-	t_node	*a;
-	t_node	*b;
-
-	a = NULL;
-	b = NULL;
+	t_stack	*stack;
+	// t_stack	*b = NULL;
+	
 	if (ac < 2)
 		return (0);
-	else
-		init(ac, av, &a);
-	print_stks(a, b);
-	// pb(&a, &b, 1);
-	// print_stks(a, b);
-	// pb(&a, &b, 1);
-	// print_stks(a, b);
-	// pb(&a, &b, 1);
-	// print_stks(a, b);
-	// pb(&a, &b, 1);
-	// print_stks(a, b);
-	// pb(&a, &b, 1);
-	// print_stks(a, b);
-	// rrr(&a, &b, 1);
+	stack = init(ac, av);
+	print_arraya(stack, stack->curr_a);
+	pb(stack, 1);
+	pb(stack, 1);
+	pb(stack, 1);
+	ft_printf("\n\n=========================================\n\n");
+	print_arraya(stack, stack->curr_a);
+	print_arrayb(stack, stack->curr_b);
+	rrb(stack, 1);
+	ft_printf("\n\n=========================================\n\n");
+	print_arraya(stack, stack->curr_a);
+	print_arrayb(stack, stack->curr_b);
+	// start_game(a, b, ft_lst_size(&a));
 	// print_stks(a, b);
 	// ft_exit(&a);
 	// ft_exit(&b);
 }
+	// }
+	// pb(&a, &b, 1);
+	// print_stks(a, b);
+	// pb(&a, &b, 1);
+	// print_stks(a, b);
+	// pb(&a, &b, 1);
+	// print_stks(a, b);
+	// pb(&a, &b, 1);
+	// print_stks(a, b);
+	// pb(&a, &b, 1);
+	// print_stks(a, b);
+	// rr(&a, &b, 1);
+	// print_stks(a, b);
+// }
