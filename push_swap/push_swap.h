@@ -20,6 +20,7 @@ int	pb(t_stack *stack, int f);
 int	pa(t_stack *stack, int f);
 int	ra(t_stack *stack, int f);
 int	rra(t_stack *stack, int f);
+int	sa(t_stack *stack, int f);
 void longest_is(t_stack *stacks);
 
 #endif

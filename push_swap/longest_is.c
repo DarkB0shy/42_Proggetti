@@ -7,6 +7,7 @@ int get_min_index_from_a(t_stack *stack_a)
   int j;
 
   i = 0;
+  min = 0;
   min = stack_a->a[i];
   while (i < stack_a->curr_a)
   {
@@ -82,7 +83,7 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
     min_index = get_min_index_from_a(stack_a);
     if (min_is_up(stack_a, min_index))
       ra(stack_a, 1);
-    else if (!min_is_up(stack_a, min_index))
+    else
       rra(stack_a, 1);
     n_rotations--;
   }
@@ -92,8 +93,16 @@ void longest_is(t_stack *stacks)
 {
   while (stacks->curr_a > 0)
   {
-      get_min_on_top_of_a_hardon_mode(stacks);
-    pb(stacks, 1);
+    if (get_min_index_from_a(stacks))
+    {
+      if (get_min_index_from_a(stacks) == 1)
+        sa(stacks, 1);
+      else
+        get_min_on_top_of_a_hardon_mode(stacks);
+      pb(stacks, 1);
+    }
+    if (!get_min_index_from_a(stacks))
+      break;      
   }
   while (stacks->curr_b > 0)
     pa(stacks, 1);

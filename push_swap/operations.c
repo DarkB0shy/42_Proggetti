@@ -81,3 +81,18 @@ int	rra(t_stack *stack, int f)
 	stack->n_moves++;
 	return (1);
 }
+
+int	sa(t_stack *stack, int f)
+{
+	int		tmp;
+	
+    tmp = 0;
+	if(!stack->a[0] || !stack->a[1])
+        return (0);
+    tmp = stack->a[0];
+    stack->a[0] = stack->a[1];
+    stack->a[1] = tmp;
+	if (f == 1)
+		ft_printf("sa\n");
+	return (1);
+}
