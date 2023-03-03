@@ -1,18 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 12:44:51 by robegarc          #+#    #+#             */
-/*   Updated: 2023/03/01 14:54:52 by robegarc         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
-/*swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements.*/
 int	sa(t_stack *stack, int f)
 {
 	int		tmp;
@@ -28,7 +15,6 @@ int	sa(t_stack *stack, int f)
 	return (1);
 }
 
-/*swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements.*/
 int	sb(t_stack *stack, int f)
 {
 	int		tmp;
@@ -44,7 +30,6 @@ int	sb(t_stack *stack, int f)
 	return (1);
 }
 
-/*sa and sb at the same time.*/
 int	ss(t_stack *stack, int f)
 {
     int tmp;
@@ -62,7 +47,7 @@ int	ss(t_stack *stack, int f)
 	stack->n_moves++;
 	return (1);
 }
-/*push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.*/
+
 int	pa(t_stack *stack, int f)
 {
 	int	len;
@@ -88,7 +73,6 @@ int	pa(t_stack *stack, int f)
 	return (1);
 }
 
-/*push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.*/
 int	pb(t_stack *stack, int f)
 {
     int	len;
@@ -114,7 +98,6 @@ int	pb(t_stack *stack, int f)
 	return (1);
 }
 
-/*rotate a - shift up all elements of stack a by 1. The first element becomes the last one.*/
 int	ra(t_stack *stack, int f)
 {
     int i;
@@ -131,7 +114,6 @@ int	ra(t_stack *stack, int f)
 	return (1);
 }
 
-/*rotate b - shift up all elements of stack b by 1. The first element becomes the last one.*/
 int	rb(t_stack *stack, int f)
 {
 	int i;
@@ -148,7 +130,6 @@ int	rb(t_stack *stack, int f)
 	return (1);
 }
 
-/*ra and rb at the same time.*/
 int	rr(t_stack *stack, int f)
 {
 	int i;
@@ -170,7 +151,6 @@ int	rr(t_stack *stack, int f)
     return (1);
 }
 
-/*reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.*/
 int	rra(t_stack *stack, int f)
 {
 	int	len;
@@ -187,7 +167,6 @@ int	rra(t_stack *stack, int f)
 	return (1);
 }
 
-/*reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.*/
 int	rrb(t_stack *stack, int f)
 {
 	int	len;
@@ -204,7 +183,6 @@ int	rrb(t_stack *stack, int f)
 	return (1);
 }
 
-/*rra and rrb at the same time.*/
 int	rrr(t_stack *stack, int f)
 {
 	int	len;
