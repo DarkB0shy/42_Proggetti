@@ -66,9 +66,7 @@ int get_n_rotations(t_stack *stack_a)
 int get_min_on_top_of_a_ez_mode(t_stack *stack_a)
 {
   int min_index;
-  int flag;
 
-  flag = 0;
   min_index = 0;
   min_index = get_min_index_from_a(stack_a);
   if (min_index == 1)
@@ -77,12 +75,7 @@ int get_min_on_top_of_a_ez_mode(t_stack *stack_a)
     pb(stack_a, 1);
   }
   if (min_index == 0)
-  {
-    if (stack_a->curr_a == 0)
-      flag = 1;
-    else
-      pb(stack_a, 1);
-  }
+    pb(stack_a, 1);
   if (min_index == (stack_a->curr_a) - 1)
   {
     rra(stack_a, 1);
