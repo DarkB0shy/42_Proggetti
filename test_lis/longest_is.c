@@ -70,16 +70,20 @@ void get_min_on_top_of_a_ez_mode(t_stack *stack_a)
   min_index = 0;
   min_index = get_min_index_from_a(stack_a);
   if (min_index == 1)
-    sa(stack_a, 1);
-  if (min_index == 0)
   {
-    ;
+    sa(stack_a, 1);
+    pb(stack_a, 1);
   }
+  if (min_index == 0)
+    pb(stack_a, 1);
   if (min_index == (stack_a->curr_a) - 1)
+  {
     rra(stack_a, 1);
+    pb(stack_a, 1);
+  }
 }
 
-void  get_min_on_top_of_a_hardon(t_stack *stack_a)
+void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
 {
   int n_rotations;
   int min_index;
@@ -103,25 +107,28 @@ void  get_min_on_top_of_a_hardon(t_stack *stack_a)
   }
 }
 
+
+
 void longest_is(t_stack *stacks)
 {
   int min_index;
 
+  print_arraya(stacks, stacks->curr_a);
   min_index = 0;
-  min_index = get_min_index_from_a(stacks);
   while (stacks->curr_a > 0)
   {
+    min_index = get_min_index_from_a(stacks);
     if (min_index == 0 || min_index == 1 || min_index == (stacks->curr_a) - 1)
       get_min_on_top_of_a_ez_mode(stacks);
     else
-      get_min_on_top_of_a_hardon(stacks);
-    pb(stacks, 1);
+    {
+      get_min_on_top_of_a_hardon_mode(stacks);
+      pb(stacks, 1);
+    }
+    print_arraya(stacks, stacks->curr_a);
+    print_arrayb(stacks, stacks->curr_b);
   }
-  // if (stacks->curr_b % 2 == 0)
-  //   sb(stacks, 1);
-  print_arrayb(stacks, stacks->curr_b);
-  // while (stacks->curr_b > 0)
-  //   pa(stacks, 1);
-  print_arraya(stacks, stacks->curr_a);
+  while (stacks->curr_b > 0)
+    pa(stacks, 1);
   ft_printf("%d\n", stacks->n_moves);
 }

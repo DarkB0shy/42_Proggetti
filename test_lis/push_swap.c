@@ -177,10 +177,8 @@ int main(int ac, char **av)
 	// pb(stack, 1);
 	// pb(stack, 1);
 	// pb(stack, 1);
-	ft_printf("\n\n=========================================\n\n");
-	print_arraya(stack, stack->curr_a);
-	print_arrayb(stack, stack->curr_b);
     longest_is(stack);	
+	print_arraya(stack, stack->curr_a);
     // rrb(stack, 1);
 	// ft_printf("\n\n=========================================\n\n");
 	// print_arraya(stack, stack->curr_a);
