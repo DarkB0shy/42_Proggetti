@@ -1,39 +1,40 @@
-SRCS = push_swap.c utils.c operations.c
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/02/22 10:37:31 by robegarc          #+#    #+#              #
+#    Updated: 2023/03/01 12:20:23 by robegarc         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-OBJS = ${SRCS:.c=.o}
-
-CC = gcc
-
-CFLAGS = -Wall -Wextra -Werror
-
-RM = rm -f
-
+SRC = push_swap.c utils.c operations.c longest_is.c
+OBJ = $(SRC:.c=.o)
+CC = gcc -Wall -Wextra -Werror -g
 NAME = push_swap
+FT_PRINTF = ft_printf
+LIBFT = libft
+LIBRARY = ft_printf/libftprintf.a libft/libft.a
 
-PRINTF = ft_printf/libftprintf.a
+all	: $(NAME)
 
-LIBFT = libft/libft.a
-
-${NAME}: ${OBJS} ${LIBFT} ${PRINTF} 
-	${CC} ${CFLAGS} ${OBJS} ${PRINTF} ${LIBFT} -o ${NAME}
-
-all: ${NAME}
-
-${PRINTF}:
-	$(MAKE) -C ft_printf
-
-${LIBFT}:
-	$(MAKE) -C libft
-
-clean:
-	$(MAKE) clean -C ft_printf
-	$(MAKE) clean -C libft
-	${RM} ${OBJS}
-
-fclean:
-	$(MAKE) fclean -C ft_printf
-	$(MAKE) fclean -C libft
-	${RM} ${NAME}
-
-re: fclean all
+$(NAME) : $(OBJ)
+	@make -C $(FT_PRINTF)
+	@make -C $(LIBFT)
+	@$(CC) $(OBJ) $(LIBRARY) -o $(NAME)
 	
+clean :
+	@make clean -C $(FT_PRINTF)
+	@make clean -C $(LIBFT)
+	rm -f $(OBJ)
+	
+fclean : clean
+	@make fclean -C $(FT_PRINTF)
+	@make fclean -C $(LIBFT)
+	rm -f $(NAME)
+	
+re : fclean clean all
+
+.PHONY: clean fclean re all
