@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 09:46:07 by robegarc          #+#    #+#             */
-/*   Updated: 2023/03/01 14:55:00 by robegarc         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:04:09 by dcarassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	print_arrayb(t_stack *stack, int len)
 void	fill_stack(int ac, char **av, int i, t_stack *stack)
 {
 	int j;
-	
+
 	stack->a = (int *)malloc(sizeof(int) * (ac - 1));
 	stack->b = (int *)malloc(sizeof(int) * (ac - 1));
 	j = 0;
@@ -169,20 +169,12 @@ int main(int ac, char **av)
 {
 	t_stack	*stack;
 	// t_stack	*b = NULL;
-	
-	if (ac < 2)
+
+	if (ac <= 2)
 		return (0);
 	stack = init(ac, av);
 	print_arraya(stack, stack->curr_a);
 	pb(stack, 1);
-	pb(stack, 1);
-	pb(stack, 1);
-	ft_printf("\n\n=========================================\n\n");
-	print_arraya(stack, stack->curr_a);
-	print_arrayb(stack, stack->curr_b);
-	rrb(stack, 1);
-	ft_printf("\n\n=========================================\n\n");
-	print_arraya(stack, stack->curr_a);
 	print_arrayb(stack, stack->curr_b);
 	// start_game(a, b, ft_lst_size(&a));
 	// print_stks(a, b);
