@@ -63,7 +63,7 @@ int get_n_rotations(t_stack *stack_a)
   return (n_rotations);
 }
 
-int get_min_on_top_of_a_ez_mode(t_stack *stack_a)
+void get_min_on_top_of_a_ez_mode(t_stack *stack_a)
 {
   int min_index;
 
@@ -81,7 +81,6 @@ int get_min_on_top_of_a_ez_mode(t_stack *stack_a)
     rra(stack_a, 1);
     pb(stack_a, 1);
   }
-  return (flag);
 }
 
 void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
@@ -113,20 +112,14 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
 void longest_is(t_stack *stacks)
 {
   int min_index;
-  int temp;
 
-  temp = 0;
   print_arraya(stacks, stacks->curr_a);
   min_index = 0;
   while (stacks->curr_a > 0)
   {
     min_index = get_min_index_from_a(stacks);
     if (min_index == 0 || min_index == 1 || min_index == (stacks->curr_a) - 1)
-    {
-      temp = get_min_on_top_of_a_ez_mode(stacks);
-      if (temp == 1)
-        break;
-    }    
+      get_min_on_top_of_a_ez_mode(stacks); 
     else
     {
       get_min_on_top_of_a_hardon_mode(stacks);
