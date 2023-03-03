@@ -68,9 +68,9 @@ int main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	stack = init(ac, av);
-	print_arraya(stacks, stacks->curr_a);
+	print_arraya(stack, stack->curr_a);
     longest_is(stack);	
-	print_arraya(stacks, stacks->curr_a);
-	ft_printf("%d\n", stacks->n_moves);
+	print_arraya(stack, stack->curr_a);
+	ft_printf("%d\n", stack->n_moves);
 	return (0);
 }

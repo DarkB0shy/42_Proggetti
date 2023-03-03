@@ -81,15 +81,10 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
   {
     min_index = get_min_index_from_a(stack_a);
     if (min_is_up(stack_a, min_index))
-    {
       ra(stack_a, 1);
-      n_rotations--;
-    }
     else if (!min_is_up(stack_a, min_index))
-    {
       rra(stack_a, 1);
-      n_rotations--;
-    }
+    n_rotations--;
   }
 }
 
@@ -102,6 +97,4 @@ void longest_is(t_stack *stacks)
   }
   while (stacks->curr_b > 0)
     pa(stacks, 1);
-  print_arraya(stacks, stacks->curr_a);
-  ft_printf("%d\n", stacks->n_moves);
 }
