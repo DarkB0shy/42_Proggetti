@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC = push_swap.c utils.c operations.c longest_is.c
+SRC = push_swap.c utils.c operations.c longest_is_utils.c longest_is.c
 OBJ = $(SRC:.c=.o)
 CC = gcc -Wall -Wextra -Werror -g
 NAME = push_swap
