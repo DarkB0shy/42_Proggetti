@@ -93,16 +93,8 @@ void longest_is(t_stack *stacks)
 {
   while (stacks->curr_a > 0)
   {
-    if (get_min_index_from_a(stacks))
-    {
-      if (get_min_index_from_a(stacks) == 1)
-        sa(stacks, 1);
-      else
-        get_min_on_top_of_a_hardon_mode(stacks);
-      pb(stacks, 1);
-    }
-    if (!get_min_index_from_a(stacks))
-      break;      
+    get_min_on_top_of_a_hardon_mode(stacks);
+    pb(stacks, 1);
   }
   while (stacks->curr_b > 0)
     pa(stacks, 1);
