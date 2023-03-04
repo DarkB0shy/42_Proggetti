@@ -36,23 +36,23 @@ int get_min_index_from_a(t_stack *stack_a)
 
 int min_is_up(t_stack *stack_a, int min_index)
 {
-  int   min_is_up;
+  int   min_is_up_;
   int   i;
 
   i = 0;
-  min_is_up = 0;
+  min_is_up_ = 0;
   while (stack_a->a[i])
   {
     if (i == min_index)
     {
-      min_is_up = 1;
+      min_is_up_ = 1;
       break;
     }
     if (i >= ((int)stack_a->curr_a)/2)
       break;
     i++;
   }
-  return (min_is_up);
+  return (min_is_up_);
 }
 
 int get_n_rotations(t_stack *stack_a)
@@ -65,8 +65,13 @@ int get_n_rotations(t_stack *stack_a)
   min_index = get_min_index_from_a(stack_a);
   if (min_is_up(stack_a, min_index))
     n_rotations = min_index;
-  else if (!min_is_up(stack_a, min_index))
+  else
+  {
     n_rotations = (stack_a->curr_a) - min_index;
+    ft_printf("%d\n", n_rotations);
+  }
+  if (n_rotations == stack_a->curr_a)
+    n_rotations = 0;
   return (n_rotations);
 }
 
@@ -89,12 +94,30 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
   }
 }
 
+int check_full_order(t_stack *stacks)
+{
+  int i;
+
+  i = 0;
+  while(stacks->a[i])
+  {
+    if (stacks->a[i] < stacks->a[i + 1])
+      i++;
+    else
+      break;
+  }
+  return (i);
+}
+
 void longest_is(t_stack *stacks)
 {
   while (stacks->curr_a > 0)
   {
     get_min_on_top_of_a_hardon_mode(stacks);
-    pb(stacks, 1);
+    if (check_full_order(stacks) != stacks->curr_a)
+      pb(stacks, 1);
+    else
+      break;
   }
   while (stacks->curr_b > 0)
     pa(stacks, 1);
