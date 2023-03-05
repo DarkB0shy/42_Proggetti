@@ -20,6 +20,7 @@ int	pb(t_stack *stack, int f);
 int	pa(t_stack *stack, int f);
 int	ra(t_stack *stack, int f);
 int	rra(t_stack *stack, int f);
+int	sa(t_stack *stack, int f);
 void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a);
 int check_full_order(t_stack *stacks);
 int get_n_rotations(t_stack *stack_a);

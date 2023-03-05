@@ -68,6 +68,7 @@ int main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	stack = init(ac, av);
+	stack->n_moves = 0;
 	print_arraya(stack, stack->curr_a);
     longest_is(stack);	
 	print_arraya(stack, stack->curr_a);

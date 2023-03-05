@@ -91,8 +91,7 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
   n_rotations = get_n_rotations(stack_a); 
   while (n_rotations > 0)
   {
-    min_index = get_min_index_from_a(stack_a
-    );
+    min_index = get_min_index_from_a(stack_a);
     if (min_is_up(stack_a, min_index))
       ra(stack_a, 1);
     else

@@ -77,7 +77,7 @@ int	rra(t_stack *stack, int f)
 		stack->a[len] = stack->a[len - 1];
     stack->a[0] = tmp;
 	if (f == 1)
-		ft_printf("rra");
+		ft_printf("rra\n");
 	stack->n_moves++;
 	return (1);
 }
