@@ -45,8 +45,6 @@ void longest_is(t_stack *stacks)
       break;
     }
     get_min_on_top_of_a_hardon_mode(stacks);
-    if (check_full_order(stacks) == stacks->curr_a - 1)
-      break;
     pb(stacks, 1);
   }
   while (stacks->curr_b > 0)
