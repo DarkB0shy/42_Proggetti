@@ -42,18 +42,13 @@ int min_is_up(t_stack *stack_a, int min_index)
 
   i = 0;
   min_is_up_ = 0;
-  while (stack_a->a[i])
-  {
-    if (i == min_index)
-    {
+  if (min_index == 0)
+    return (min_is_up_);
+  if (i <= (stack_a->curr_a)/2)
       min_is_up_ = 1;
-      break;
-    }
-    if (i > (stack_a->curr_a)/2)
-      break;
-    i++;
-  }
-  return (min_is_up_);
+  if (i > (stack_a->curr_a)/2)
+      min_is_up_ = 0;
+  return(min_is_up_);
 }
 
 int get_n_rotations(t_stack *stack_a)
@@ -68,8 +63,6 @@ int get_n_rotations(t_stack *stack_a)
     n_rotations = min_index;
   else
     n_rotations = (stack_a->curr_a) - min_index;
-  if (n_rotations == stack_a->curr_a)
-    n_rotations = 0;
   return (n_rotations);
 }
 
