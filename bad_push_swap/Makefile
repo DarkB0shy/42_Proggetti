@@ -10,8 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRC =	srcs/push_swap.c srcs/push_swap_utils.c srcs/quick_sort.c srcs/in_out_check.c \
-		operations/push.c operations/swap.c operations/reverse_rotate.c operations/rotate.c
+SRC = push_swap.c utils.c operations.c longest_is_utils.c longest_is.c
 OBJ = $(SRC:.c=.o)
 CC = gcc -Wall -Wextra -Werror -g
 NAME = push_swap
@@ -29,12 +28,12 @@ $(NAME) : $(OBJ)
 clean :
 	@make clean -C $(FT_PRINTF)
 	@make clean -C $(LIBFT)
-	@rm -f $(OBJ)
+	rm -f $(OBJ)
 	
 fclean : clean
 	@make fclean -C $(FT_PRINTF)
 	@make fclean -C $(LIBFT)
-	@rm -f $(NAME)
+	rm -f $(NAME)
 	
 re : fclean clean all
 
