@@ -1,4 +1,4 @@
-#include "../incl/push_swap.h"
+ #include "../incl/push_swap.h"
 
 void	tmp_sort(int *tmp_stk, int dim)
 {
