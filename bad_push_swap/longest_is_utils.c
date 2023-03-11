@@ -45,9 +45,10 @@ int min_is_up(t_stack *stack_a, int min_index)
   if (min_index == 0)
     return (min_is_up_);
   if (i <= (stack_a->curr_a)/2)
-      min_is_up_ = 1;
-  if (i > (stack_a->curr_a)/2)
       min_is_up_ = 0;
+  if (i > (stack_a->curr_a)/2)
+      min_is_up_ = 1;
+  ft_printf("%d\n", min_is_up_);
   return(min_is_up_);
 }
 
@@ -59,7 +60,7 @@ int get_n_rotations(t_stack *stack_a)
   n_rotations = 0;
   min_index = 0;
   min_index = get_min_index_from_a(stack_a);
-  if (min_is_up(stack_a, min_index))
+  if (!min_is_up(stack_a, min_index))
     n_rotations = min_index;
   else
     n_rotations = (stack_a->curr_a) - min_index;
@@ -92,7 +93,7 @@ void  get_min_on_top_of_a_hardon_mode(t_stack *stack_a)
   while (n_rotations > 0)
   {
     min_index = get_min_index_from_a(stack_a);
-    if (min_is_up(stack_a, min_index))
+    if (!min_is_up(stack_a, min_index))
       ra(stack_a, 1);
     else
       rra(stack_a, 1);

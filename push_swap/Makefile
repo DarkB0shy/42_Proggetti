@@ -10,9 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
+<<<<<<< HEAD
 SRC =	srcs/push_swap.c srcs/push_swap_utils.c srcs/quick_sort.c srcs/in_out_check.c srcs/init.c \
 		operations/push.c operations/swap.c operations/reverse_rotate.c operations/rotate.c
 OBJ = ${SRC:.c=.o}
+=======
+SRC =	srcs/push_swap.c srcs/push_swap_utils.c srcs/quick_sort.c srcs/in_out_check.c \
+		operations/push.c operations/swap.c operations/reverse_rotate.c operations/rotate.c
+OBJ = $(SRC:.c=.o)
+CC = gcc -Wall -Wextra -Werror -g
+>>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
 NAME = push_swap
 
 SRC_B =	bonus/checker.c
@@ -39,14 +46,24 @@ clean :
 	@make clean -C $(FT_PRINTF)
 	@make clean -C $(LIBFT)
 	@rm -f $(OBJ)
+<<<<<<< HEAD
 	@rm -f $(OBJ_B)
+=======
+>>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
 	
 fclean : clean
 	@make fclean -C $(FT_PRINTF)
 	@make fclean -C $(LIBFT)
 	@rm -f $(NAME)
+<<<<<<< HEAD
 	@rm -f $(NAME_B)
+=======
+>>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
 	
 re : fclean all bonus
 
+<<<<<<< HEAD
 .PHONY: all clean fclean re
+=======
+.PHONY: clean fclean re all
+>>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
