@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -12,9 +11,6 @@
 /* ************************************************************************** */
 
 #include "../incl/push_swap.h"
-=======
- #include "../incl/push_swap.h"
->>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
 
 void	tmp_sort(int *tmp_stk, int dim)
 {
@@ -56,11 +52,7 @@ int	check_sorted_desc(int *stack, int dim)
 
 int	check_sorted_asc(int *stack, int dim)
 {
-<<<<<<< HEAD
 	int	i;
-=======
-	int i;
->>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
 
 	i = 1;
 	while (i < dim)
@@ -70,7 +62,6 @@ int	check_sorted_asc(int *stack, int dim)
 		i++;
 	}
 	return (1);
-<<<<<<< HEAD
 }
 
 int	when_push(t_stack *stack, int dim, int f)
@@ -82,6 +73,3 @@ int	when_push(t_stack *stack, int dim, int f)
 	dim--;
 	return (dim);
 }
-=======
-}
->>>>>>> bbad5cb01b7d2e2eb4b89f5e60f57827d8b47969
