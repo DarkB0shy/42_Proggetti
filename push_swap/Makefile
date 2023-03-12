@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: robegarc <robegarc@student.42.fr>          +#+  +:+       +#+         #
+#    By: dcarassi <dcarassi@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/02/22 10:37:31 by robegarc          #+#    #+#              #
-#    Updated: 2023/03/11 12:31:07 by robegarc         ###   ########.fr        #
+#    Created: 2023/03/12 10:44:11 by dcarassi          #+#    #+#              #
+#    Updated: 2023/03/12 10:44:13 by dcarassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,13 +40,13 @@ clean :
 	@make clean -C $(LIBFT)
 	@rm -f $(OBJ)
 	@rm -f $(OBJ_B)
-	
+
 fclean : clean
 	@make fclean -C $(FT_PRINTF)
 	@make fclean -C $(LIBFT)
 	@rm -f $(NAME)
 	@rm -f $(NAME_B)
-	
+
 re : fclean all bonus
 
 .PHONY: all clean fclean re
